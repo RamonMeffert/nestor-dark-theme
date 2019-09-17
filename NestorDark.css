@@ -1,0 +1,213 @@
+@-moz-document domain("nestor.rug.nl") {
+/* 
+University of Groningen Student Portal Dark Theme
+
+Copyright 2019 Ramon Meffert
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+*/
+
+body {
+    background-color: #111;
+    color: #fefefe;
+}
+
+a {
+    color: rgb(93, 192, 255);
+}
+
+.locationPane {
+    background-color: #111 !important;
+}
+
+.portal .container {
+    background-color: #111 !important;
+    padding: 0 !important;
+}
+
+.brandingImgWrap {
+    background-color: #111;
+}
+
+table.bouncer {
+    border: none;
+}
+
+.tabWrapper-left,
+.tabWrapper-center,
+.tabWrapper-right {
+    box-shadow: none !important;
+}
+
+.tabWrapper-left::before,
+.tabWrapper-center::before,
+.tabWrapper-right::before {
+    background-color: #333;
+}
+
+table.appTabs tbody tr td.active a {
+    background-color: #111;
+    border: 1px solid #111;
+}
+
+.appTabs td {
+    padding-bottom: 0 !important;
+}
+
+#topTabActive,
+.appTabs .active a,
+.appTabs .active a:hover,
+.appTabs .active a:focus {
+    height: auto;
+}
+
+.appTabs::before {
+    border: none;
+    box-shadow: none !important;
+}
+
+.reorderableModule {
+    background-color: #222;
+    color: #fefefe;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.reorderableModule h2 {
+    background-color: #333;
+    color: #fefefe;
+}
+
+.reorderableModule:hover {
+    background-color: #222;
+    color: #fefefe;
+}
+
+.reorderableModule:hover h2 {
+    color: #fefefe;
+}
+
+.edit_controls a.moduleToggleLink {
+    filter: brightness(2);
+}
+
+.mc_search input,
+#pg_grades .search,
+#RUGLibrarySearch input.query {
+    background-color: #111 !important;
+    color: #fefefe;
+    border: 1px solid #555 !important;
+    border-radius: 3px;
+}
+
+.mc_enrollmentListClass li:hover {
+    background-color: #222 !important;
+}
+
+.mc_enrollmentListClass li:last-of-type {
+    border: none;
+}
+
+.collapsible table {
+    color: #fefefe;
+}
+
+.collapsible tr {
+    border: none !important;
+}
+
+.collapsible tr:nth-of-type(2n) {
+    background-color: #333;
+}
+
+.news_hotlinks_tabs {
+    border: none;
+}
+
+.news_hotlinks_tabs div:first-child {
+    display: none;
+}
+
+.tt-dayheader {
+    color: #fefefe;
+}
+
+.tt-time {
+    background-color: #888;
+    color: #fefefe;
+}
+
+#pg_PrintAction {
+    float: left;
+    margin: 5px 10px 5px 10px;
+}
+
+#pg_PrintAction i::before {
+    line-height: 20px;
+}
+
+#pg_Search {
+    clear: right;
+    display: block;
+    width: 89%;
+    margin-bottom: .5rem;
+}
+
+#pg_grades label:first-of-type {
+    margin-left: 50px;
+}
+
+#pg_grades label {
+    margin: 0 1rem;
+}
+
+#pg_grades label input {
+    margin-right: .7rem;
+    margin-bottom: 6px;
+}
+
+.pg_table li {
+    border: none;
+}
+
+.pg_table li:nth-of-type(2n-1) {
+    background-color: #333;
+}
+
+#module\:_4957_1 .collapsible,
+#module\:_4945_1 .collapsible,
+#module\:_4955_1 .collapsible,
+#module\:_4943_1 .collapsible{
+    padding: 0 !important;
+}
+
+#RUGsearch {
+    border: none;
+}
+
+#RUGsearch .tab {
+    background-color: transparent !important;
+    border-bottom: 3px solid;
+    border-color: #555;
+}
+
+#RUGsearch .tab.active {
+    border-bottom: 3px solid #fefefe;
+}
+
+#RUGsearch .tab a {
+    padding: 1em;
+}
+
+#RUGsearch .tab a img {
+    max-height: 30px !important;
+}
+
+#RUGsearch .box {
+    padding: 2em 2em 0 2em;
+}
+}
