@@ -1,4 +1,3 @@
-@-moz-document domain("nestor.rug.nl") {
 /* 
 University of Groningen Student Portal Dark Theme
 
@@ -10,323 +9,368 @@ The above copyright notice and this permission notice shall be included in all c
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
-
 body {
-    background-color: #111;
-    color: #fefefe;
+	background-color: #111;
+	color: #fefefe;
 }
 
 a {
-    color: rgb(93, 192, 255);
+	color: rgb(93, 192, 255);
 }
 
 a:hover {
-    color: hsl(203, 100%, 78%);
-    text-decoration: none !important;
+	color: hsl(203, 100%, 78%);
+	text-decoration: none !important;
 }
 
 .locationPane {
-    background-color: #111 !important;
+	background-color: #111 !important;
 }
 
 .portal .container {
-    background-color: #111 !important;
-    padding: 0 !important;
+	background-color: #111 !important;
+	padding: 0 !important;
 }
 
 .brandingImgWrap {
-    background-color: #111;
+	background-color: #111;
 }
 
 table.bouncer {
-    border: none;
+	border: none;
 }
 
 .tabWrapper-left,
 .tabWrapper-center,
 .tabWrapper-right {
-    box-shadow: none !important;
+	box-shadow: none !important;
 }
 
 .tabWrapper-left::before,
 .tabWrapper-center::before,
 .tabWrapper-right::before {
-    background-color: #333;
+	background-color: #333;
 }
 
 table.appTabs tbody tr td.active a {
-    background-color: #111;
-    border: 1px solid #111;
+	background-color: #111;
+	border: 1px solid #111;
 }
 
 .appTabs td {
-    padding-bottom: 0 !important;
+	padding-bottom: 0 !important;
 }
 
 #topTabActive,
 .appTabs .active a,
 .appTabs .active a:hover,
 .appTabs .active a:focus {
-    height: auto;
+	height: auto;
 }
 
 .appTabs::before {
-    border: none;
-    box-shadow: none !important;
+	border: none;
+	box-shadow: none !important;
 }
 
 .reorderableModule {
-    background-color: #222;
-    color: #fefefe;
-    border-radius: 5px;
-    overflow: hidden;
+	background-color: #222;
+	color: #fefefe;
+	border-radius: 5px;
+	overflow: hidden;
 }
 
 .reorderableModule h2 {
-    background-color: #333;
-    color: #fefefe;
+	background-color: #333;
+	color: #fefefe;
 }
 
 .reorderableModule:hover {
-    background-color: #222;
-    color: #fefefe;
+	background-color: #222;
+	color: #fefefe;
 }
 
 .reorderableModule:hover h2 {
-    color: #fefefe;
+	color: #fefefe;
 }
 
 .edit_controls a.moduleToggleLink {
-    filter: brightness(2);
+	filter: brightness(2);
 }
 
 .mc_search input,
 #pg_grades .search,
 #RUGLibrarySearch input.query {
-    background-color: #111 !important;
-    color: #fefefe;
-    border: 1px solid #555 !important;
-    border-radius: 3px;
+	background-color: #111 !important;
+	color: #fefefe;
+	border: 1px solid #555 !important;
+	border-radius: 3px;
 }
 
 .mc_search input {
-    margin: 0 1rem 0.6em 1rem !important;
-    box-sizing: border-box;
-    width: calc(100% - 2rem) !important;
+	margin: 0 1rem 0.6em 1rem !important;
+	box-sizing: border-box;
+	width: calc(100% - 2rem) !important;
 }
 
 .mc_header {
-    border-bottom: 1px solid #444;
-    border-top: 1px solid #444;
-    padding: .5rem 1.1rem;
-    background-color: #333;
-    width: calc(100% - 2.2rem);
-    display: block;
-    margin: 0;
+	border-bottom: 1px solid #444;
+	border-top: 1px solid #444;
+	padding: .5rem 1.1rem;
+	background-color: #333;
+	width: calc(100% - 2.2rem);
+	display: block;
+	margin: 0;
 }
 
 .mc_header span {
-    margin-right: .7rem;
+	margin-right: .7rem;
 }
 
 /* WHY do these brs need to be here. They don't. */
-#mc_listWrapper br, #mc_starredCourses br {
-    display: none;
+#mc_listWrapper br,
+#mc_starredCourses br {
+	display: none;
 }
 
 .mc_yearNav {
-    width: calc(100% - 2.2rem);
-    display: flex;
-    justify-content: space-between;
-    padding: .5rem 1.1rem;
-    border-bottom: 1px solid #444;
-    background-color: #333;
+	width: calc(100% - 2.2rem);
+	display: flex;
+	justify-content: space-between;
+	padding: .5rem 1.1rem;
+	border-bottom: 1px solid #444;
+	background-color: #333;
 }
 
 .mc_yearNav > * {
-    align-self: center;
-    display: block;
+	align-self: center;
+	display: block;
 }
 
 #mc_enrollmentsWrapper::before {
-    content: "☰  Available courses";
-    border-bottom: 1px solid #444;
-    border-top: 1px solid #444;
-    padding: .5rem 1.1rem;
-    background-color: #333;
-    width: 100%;
-    display: block;
-    font-weight: bold;
-    margin: 0;
+	content: "☰  Available courses";
+	border-bottom: 1px solid #444;
+	border-top: 1px solid #444;
+	padding: .5rem 1.1rem;
+	background-color: #333;
+	width: 100%;
+	display: block;
+	font-weight: bold;
+	margin: 0;
 }
 
 .mc_yearNav > .mc_selectedYearCode {
-    padding: .3rem .6rem .4rem .6rem;
-    background-color: rgb(93, 192, 255);
-    color: #222;
-    font-size: 1em;
+	padding: .3rem .6rem .4rem .6rem;
+	background-color: rgb(93, 192, 255);
+	color: #222;
+	font-size: 1em;
 }
 
 .mc_yearNav > a {
-    padding: .3rem .6rem .4rem .6rem;
-    background-color: #444;
-    color: #fefefe;
-    border-radius: 3px;
+	padding: .3rem .6rem .4rem .6rem;
+	background-color: #444;
+	color: #fefefe;
+	border-radius: 3px;
 }
 
 .mc_yearNav > a:first-of-type > span {
-    margin-right: .5rem;
-    vertical-align: 1.5px;
+	margin-right: .5rem;
+	vertical-align: 1.5px;
 }
 
 /* Target the last one ONLY if it is not also the first one*/
 .mc_yearNav > a:last-of-type:not(:first-of-type) > span {
-    margin-left: .5rem;
-    vertical-align: 1.5px;
+	margin-left: .5rem;
+	vertical-align: 1.5px;
 }
 
 .mc_enrollmentListClass li:hover {
-    background-color: #222 !important;
+	background-color: #222 !important;
 }
 
 .mc_enrollmentListClass li {
-    border: none;
+	border: none;
 }
 
 .mc_enrollmentListClass > li:nth-of-type(2n) {
-    background-color: #333;
+	background-color: #333;
 }
 
 .mc_enrollmentListClass .mc_star {
-    color: #fefefe;
+	color: #fefefe;
 }
 
 .collapsible table {
-    color: #fefefe;
+	color: #fefefe;
 }
 
 .collapsible tr {
-    border: none !important;
-    transition: background-color .2s;
+	border: none !important;
+	transition: background-color .2s;
 }
 
 .collapsible tr:nth-of-type(2n) {
-    background-color: #333;
+	background-color: #333;
 }
 
 .news_hotlinks_tabs {
-    border: none;
+	border: none;
 }
 
 .news_hotlinks_tabs div:first-child {
-    display: none;
+	display: none;
 }
 
 .collapsible tr:nth-of-type(2n):hover {
-    background-color: #393939;
+	background-color: #393939;
 }
 
 .collapsible tr:nth-of-type(2n+1):hover {
-    background-color: #292929;
+	background-color: #292929;
 }
 
 .tt-dayheader {
-    color: #fefefe;
+	color: #fefefe;
 }
 
 .tt-time {
-    background-color: #888;
-    color: #fefefe;
+	background-color: #888;
+	color: #fefefe;
 }
 
 #pg_PrintAction {
-    position: absolute;
-    right: 10px;
-    top: 60px;
-    padding: 5px 10px 5px 10px;
+	margin: 1.1rem 1.1rem 1.1rem 0;
+	display: flex;
+	width: 18px;
+	padding-top: 5px;
+	order: 2;
 }
 
 #pg_PrintAction i::before {
-    line-height: 20px;
+	line-height: 20px;
 }
 
 #pg_Search {
-    clear: right;
-    display: block;
-    width: 89%;
-    margin-bottom: .5rem;
+	order: 1;
+	box-sizing: border-box;
+	margin: 1.1rem;
+	width: calc(100% - 2.2rem - 19px - 1.1rem);
 }
 
 /* For whatever reason, pg_grades is a list styled as if it's a table which makes formatting hell */
+#pg_grades {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+}
+
 #pg_grades label:first-of-type {
-    margin-left: 50px;
+	margin-left: 1.1rem;
+}
+
+/* Right margin is the same width as the print icon space */
+#pg_grades label:last-of-type {
+	margin-right: calc(1.1rem + 19px + 1.1rem);
 }
 
 #pg_grades label {
-    margin: 0 1rem;
+	cursor: pointer;
+	order: 3;
+	box-sizing: border-box;
+	flex-grow: 1;
+	padding: .3rem .6rem .3rem .6rem;
+	background-color: #333;
+	border: 1px solid #444;
+	border-radius: 3px;
+	margin: 0 .55rem;
 }
 
 #pg_grades label input {
-    margin-right: .7rem;
-    margin-bottom: 6px;
+	margin-right: .7rem;
+	margin-bottom: 6px;
 }
 
-#pg_gradesList .pg_main-course, #pg_HeaderRow {
-    padding: 0.1rem 1rem;
-    width: calc(100% - 2rem);
+#pg_gradesList .pg_main-course,
+#pg_HeaderRow {
+	padding: 0.3rem 1.1rem;
+	width: calc(100% - 2rem);
+}
+
+#pg_HeaderRow {
+	border-top: 1px solid #444;
+	border-bottom: 1px solid #444;
+}
+
+.pg_table {
+	order: 4;
+	margin-top: 1.1rem;
+	border-bottom: 1px solid #444;
 }
 
 .pg_table li {
-    border: none;
+	border: none;
+	padding: 0;
 }
 
 .pg_table li:nth-of-type(2n-1) {
-    background-color: #333;
+	background-color: #333;
+}
+
+.pg_courseCode {
+	font-size: .8rem;
+	font-family: 'Andale Mono', Monaco;
+	align-self: center;
+}
+
+.pg_pagination {
+	width: 100%;
+	text-align: center;
+	order: 5;
 }
 
 .pg_pagination li {
-    padding: .2rem .5rem .3rem .5rem;
+	padding: .2rem .5rem .3rem .5rem;
 }
 
 .pg_pagination li[class="active"] {
-    text-decoration: none;
-    background-color: rgb(93, 192, 255);
-    border-radius: 3px;
+	text-decoration: none;
+	background-color: rgb(93, 192, 255);
+	border-radius: 3px;
 }
 
 .pg_pagination li[class="active"] a {
-    color: #222;
+	color: #222;
 }
 
 .pg_pagination #pg_showAllLink {
-    background-color: rgb(93, 192, 255);
-    border-radius: 3px;
-    color: #222;
-    font-size: .8rem;
-    padding: .2rem .6rem .3rem .6rem;
-    display: inline-block;
-    text-transform: uppercase;
-    margin-top: 5px;
-    margin-bottom: 10px;
+	background-color: rgb(93, 192, 255);
+	border-radius: 3px;
+	color: #222;
+	font-size: .8rem;
+	padding: .2rem .6rem .3rem .6rem;
+	display: inline-block;
+	text-transform: uppercase;
+	margin-top: 5px;
+	margin-bottom: 10px;
 }
 
 .pg_pagination #pg_showAllLink:hover {
-    background-color: hsl(203, 100%, 78%);
-    text-decoration: none;
+	background-color: hsl(203, 100%, 78%);
+	text-decoration: none;
 }
 
 /* Ah yes, a disabled list item. Of course.*/
 .pg_pagination li[class="disabled"] {
-    background-color: transparent !important;
-    opacity: 1
+	background-color: transparent !important;
+	opacity: 1
 }
 
 .pg_lastUpdate,
 .pg_total,
 .pg_disclaimer,
 .pg_pagination {
-    padding: .5rem 1rem !important;
-    margin: 0 !important; 
+	padding: .5rem 1rem !important;
+	margin: 0 !important;
 }
 
 /* Remove odd padding on elements */
@@ -336,56 +380,102 @@ table.appTabs tbody tr td.active a {
 #module\:_4943_1 .collapsible,
 #module\:_5048_1 .collapsible,
 #module\:_4939_1 .collapsible {
-    padding: 0 !important;
+	padding: 0 !important;
 }
 
 /* elements in iframes cannot be styled, but rotating the hue, inverting the iframe and decreasing contrast makes it fit a bit better. Currently applied to "Nice to Know" and "Need to Know" modules*/
 #module\:_4960_1 iframe,
 #module\:_4959_1 iframe {
-    filter: hue-rotate(180deg) invert() contrast(.73);
+	filter: hue-rotate(180deg) invert() contrast(.73);
 }
 
 #RUGsearch {
-    border: none;
+	border: none;
 }
 
 #RUGsearch .tab {
-    background-color: transparent !important;
-    border-bottom: 3px solid;
-    border-color: #555;
+	background-color: transparent !important;
+	border-bottom: 3px solid;
+	border-color: #555;
 }
 
 #RUGsearch .tab.active {
-    border-bottom: 3px solid #fefefe;
+	border-bottom: 3px solid #fefefe;
 }
 
 #RUGsearch .tab a {
-    padding: 1em;
+	padding: 1em;
 }
 
 #RUGsearch .tab a img {
-    max-height: 30px !important;
+	max-height: 30px !important;
 }
 
 #RUGsearch .box {
-    padding: 2em 2em 0 2em;
+	padding: 2em 2em 0 2em;
 }
 
 #div_4944_1 a {
-    background-color: #333 !important;
-    border-radius: 5px;
-    color: #fefefe;
-    transition: background-color 0.2s;
+	background-color: #333 !important;
+	border-radius: 5px;
+	color: #fefefe;
+	transition: background-color 0.2s;
 }
 
 #div_4944_1 a:hover {
-    background-color: #444 !important;
+	background-color: #444 !important;
 }
 
 #div_4944_1 img {
-    width: 22px;
-    border-radius:2px;
-    vertical-align: sub;
-    margin-left: 3px;
+	width: 22px;
+	border-radius: 2px;
+	vertical-align: sub;
+	margin-left: 3px;
 }
+
+/* COURSE PAGES */
+#breadcrumbs {
+	background-color: #222;
+	border: none;
+	padding: 0.5rem 1.5rem 0.7rem;
+}
+
+#breadcrumbs li,
+#breadcrumbs li a {
+	color: #ccc;
+	font-size: 1rem;
+	font-weight: normal;
+	padding: 0 !important;
+	margin: 0 !important;
+	overflow: visible;
+}
+
+#breadcrumbs li a .courseId {
+	font-family: 'Andale Mono', Menlo, monospace;
+	font-size: 0.8rem;
+	text-transform: uppercase;
+	background-color: #333;
+	padding: .2rem .4rem .2rem .4rem;
+	border-radius: 3px;
+	margin-left: .3rem;
+}
+
+#breadcrumbs li .contextArrowDown {
+	display: none;
+}
+
+#breadcrumbs li:not(:first-of-type) {
+	border: none !important;
+	margin-top: .2rem !important;
+	margin-left: .8rem !important;
+}
+
+#breadcrumbs li:not(:first-of-type)::before {
+	content: '»';
+	color: #777;
+	display: inline-block;
+	margin-right: .3rem;
+	font-size: 2rem;
+	vertical-align: -3px;
+	line-height: .8rem;
 }
