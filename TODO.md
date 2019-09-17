@@ -12,10 +12,10 @@
   - [ ] Group enroll
   - [ ] Sidebar
 - [ ] Course evaluations module (don't know how it looks rn as I have no open evaluations)
-- [ ] Improve user results module
-  - [ ] remove outside padding
-  - [ ] add padding to result rows
-  - [ ] Maybe add conditional colors for grades
-- [ ] Improve RUG tools and Faculty Tools Modules
-  - [ ] Add hover style
-- [ ] Breadcrumbs
+- [x] Improve user results module
+  - [x] remove outside padding
+  - [x] add padding to result rows
+  - [ ] Maybe add conditional colors for grades // Not possible with pure css
+- [x] Improve RUG tools and Faculty Tools Modules
+  - [x] Add hover style
+- [x] Breadcrumbs
