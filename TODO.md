@@ -16,4 +16,6 @@
   - [ ] remove outside padding
   - [ ] add padding to result rows
   - [ ] Maybe add conditional colors for grades
+- [ ] Improve RUG tools and Faculty Tools Modules
+  - [ ] Add hover style
 - [ ] Breadcrumbs
