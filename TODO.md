@@ -11,6 +11,9 @@
   - [ ] Grades
   - [ ] Group enroll
   - [ ] Sidebar
-  - [ ]
 - [ ] Course evaluations module (don't know how it looks rn as I have no open evaluations)
+- [ ] Improve user results module
+  - [ ] remove outside padding
+  - [ ] add padding to result rows
+  - [ ] Maybe add conditional colors for grades
 - [ ] Breadcrumbs
