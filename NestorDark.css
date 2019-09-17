@@ -20,6 +20,11 @@ a {
     color: rgb(93, 192, 255);
 }
 
+a:hover {
+    color: hsl(203, 100%, 78%);
+    text-decoration: none !important;
+}
+
 .locationPane {
     background-color: #111 !important;
 }
@@ -104,12 +109,96 @@ table.appTabs tbody tr td.active a {
     border-radius: 3px;
 }
 
+.mc_search input {
+    margin: 0 1rem 0.6em 1rem !important;
+    box-sizing: border-box;
+    width: calc(100% - 2rem) !important;
+}
+
+.mc_header {
+    border-bottom: 1px solid #444;
+    border-top: 1px solid #444;
+    padding: .5rem 1.1rem;
+    background-color: #333;
+    width: calc(100% - 2.2rem);
+    display: block;
+    margin: 0;
+}
+
+.mc_header span {
+    margin-right: .7rem;
+}
+
+/* WHY do these brs need to be here. They don't. */
+#mc_listWrapper br, #mc_starredCourses br {
+    display: none;
+}
+
+.mc_yearNav {
+    width: calc(100% - 2.2rem);
+    display: flex;
+    justify-content: space-between;
+    padding: .5rem 1.1rem;
+    border-bottom: 1px solid #444;
+    background-color: #333;
+}
+
+.mc_yearNav > * {
+    align-self: center;
+    display: block;
+}
+
+#mc_enrollmentsWrapper::before {
+    content: "☰  Available courses";
+    border-bottom: 1px solid #444;
+    border-top: 1px solid #444;
+    padding: .5rem 1.1rem;
+    background-color: #333;
+    width: 100%;
+    display: block;
+    font-weight: bold;
+    margin: 0;
+}
+
+.mc_yearNav > .mc_selectedYearCode {
+    padding: .3rem .6rem .4rem .6rem;
+    background-color: rgb(93, 192, 255);
+    color: #222;
+    font-size: 1em;
+}
+
+.mc_yearNav > a {
+    padding: .3rem .6rem .4rem .6rem;
+    background-color: #444;
+    color: #fefefe;
+    border-radius: 3px;
+}
+
+.mc_yearNav > a:first-of-type > span {
+    margin-right: .5rem;
+    vertical-align: 1.5px;
+}
+
+/* Target the last one ONLY if it is not also the first one*/
+.mc_yearNav > a:last-of-type:not(:first-of-type) > span {
+    margin-left: .5rem;
+    vertical-align: 1.5px;
+}
+
 .mc_enrollmentListClass li:hover {
     background-color: #222 !important;
 }
 
-.mc_enrollmentListClass li:last-of-type {
+.mc_enrollmentListClass li {
     border: none;
+}
+
+.mc_enrollmentListClass > li:nth-of-type(2n) {
+    background-color: #333;
+}
+
+.mc_enrollmentListClass .mc_star {
+    color: #fefefe;
 }
 
 .collapsible table {
@@ -118,6 +207,7 @@ table.appTabs tbody tr td.active a {
 
 .collapsible tr {
     border: none !important;
+    transition: background-color .2s;
 }
 
 .collapsible tr:nth-of-type(2n) {
@@ -132,6 +222,14 @@ table.appTabs tbody tr td.active a {
     display: none;
 }
 
+.collapsible tr:nth-of-type(2n):hover {
+    background-color: #393939;
+}
+
+.collapsible tr:nth-of-type(2n+1):hover {
+    background-color: #292929;
+}
+
 .tt-dayheader {
     color: #fefefe;
 }
@@ -142,8 +240,10 @@ table.appTabs tbody tr td.active a {
 }
 
 #pg_PrintAction {
-    float: left;
-    margin: 5px 10px 5px 10px;
+    position: absolute;
+    right: 10px;
+    top: 60px;
+    padding: 5px 10px 5px 10px;
 }
 
 #pg_PrintAction i::before {
@@ -157,6 +257,7 @@ table.appTabs tbody tr td.active a {
     margin-bottom: .5rem;
 }
 
+/* For whatever reason, pg_grades is a list styled as if it's a table which makes formatting hell */
 #pg_grades label:first-of-type {
     margin-left: 50px;
 }
@@ -170,6 +271,11 @@ table.appTabs tbody tr td.active a {
     margin-bottom: 6px;
 }
 
+#pg_gradesList .pg_main-course, #pg_HeaderRow {
+    padding: 0.1rem 1rem;
+    width: calc(100% - 2rem);
+}
+
 .pg_table li {
     border: none;
 }
@@ -178,11 +284,65 @@ table.appTabs tbody tr td.active a {
     background-color: #333;
 }
 
+.pg_pagination li {
+    padding: .2rem .5rem .3rem .5rem;
+}
+
+.pg_pagination li[class="active"] {
+    text-decoration: none;
+    background-color: rgb(93, 192, 255);
+    border-radius: 3px;
+}
+
+.pg_pagination li[class="active"] a {
+    color: #222;
+}
+
+.pg_pagination #pg_showAllLink {
+    background-color: rgb(93, 192, 255);
+    border-radius: 3px;
+    color: #222;
+    font-size: .8rem;
+    padding: .2rem .6rem .3rem .6rem;
+    display: inline-block;
+    text-transform: uppercase;
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+
+.pg_pagination #pg_showAllLink:hover {
+    background-color: hsl(203, 100%, 78%);
+    text-decoration: none;
+}
+
+/* Ah yes, a disabled list item. Of course.*/
+.pg_pagination li[class="disabled"] {
+    background-color: transparent !important;
+    opacity: 1
+}
+
+.pg_lastUpdate,
+.pg_total,
+.pg_disclaimer,
+.pg_pagination {
+    padding: .5rem 1rem !important;
+    margin: 0 !important; 
+}
+
+/* Remove odd padding on elements */
 #module\:_4957_1 .collapsible,
 #module\:_4945_1 .collapsible,
 #module\:_4955_1 .collapsible,
-#module\:_4943_1 .collapsible{
+#module\:_4943_1 .collapsible,
+#module\:_5048_1 .collapsible,
+#module\:_4939_1 .collapsible {
     padding: 0 !important;
+}
+
+/* elements in iframes cannot be styled, but rotating the hue, inverting the iframe and decreasing contrast makes it fit a bit better. Currently applied to "Nice to Know" and "Need to Know" modules*/
+#module\:_4960_1 iframe,
+#module\:_4959_1 iframe {
+    filter: hue-rotate(180deg) invert() contrast(.73);
 }
 
 #RUGsearch {
@@ -209,5 +369,23 @@ table.appTabs tbody tr td.active a {
 
 #RUGsearch .box {
     padding: 2em 2em 0 2em;
+}
+
+#div_4944_1 a {
+    background-color: #333 !important;
+    border-radius: 5px;
+    color: #fefefe;
+    transition: background-color 0.2s;
+}
+
+#div_4944_1 a:hover {
+    background-color: #444 !important;
+}
+
+#div_4944_1 img {
+    width: 22px;
+    border-radius:2px;
+    vertical-align: sub;
+    margin-left: 3px;
 }
 }
