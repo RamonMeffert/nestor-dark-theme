@@ -5,6 +5,7 @@
   - [ ] User menu (this seems to be placed w/ position:absolute :()
 - [ ] Smaller main menu
 - [ ] User menu dropdown
+- [ ] Login page
 - [ ] Course pages
   - [ ] Messages
   - [ ] Tables
