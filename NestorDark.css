@@ -23,6 +23,133 @@ a:hover {
 	text-decoration: none !important;
 }
 
+/* Top branding banner */
+.brandingImgWrap {
+	background-color: hsl(0, 100%, 30%) !important;
+	height: 2rem;
+	padding: .5rem 1.5rem .7rem;
+}
+
+.bannerImage {
+	padding: 0;
+	margin: 0;
+	height: 2rem;
+	background-size: auto 2rem;
+	display: inline-block;
+	filter: invert() grayscale() brightness(10);
+	width: auto;
+}
+
+/* Menu bar */
+#topTabs {
+	background-color: hsl(0, 100%, 20%) !important;
+}
+
+.appTabs a {
+	padding: 0;
+	margin: 0;
+	line-height: 2rem;
+	background-color: transparent !important;
+	font-weight: normal;
+	color: rgba(255,255,255,0.7) !important;
+}
+
+.appTabs a:hover {
+	background: none !important;
+}
+
+.appTabs td.active a:hover * {
+	color: white !important;
+}
+
+.appTabs td:not(.active) a:hover * {
+	color: rgba(255,255,255,0.85) !important;
+}
+
+.appTabs td:not(:last-of-type) {
+	padding-right: 1rem !important;
+}
+
+.appTabs td.active a {
+	color: #fff !important;
+}
+
+.brandingImgWrap a::after {
+	display: none;
+}
+
+.global-nav-bar {
+	height: 2rem;
+	padding: .6rem 1.5rem .6rem;
+	display: flex;
+	align-items: center !important;
+	margin: 0;
+}
+
+.global-nav-bar.logout {
+	padding-left: 0;
+}
+
+.global-nav-bar.logout a {
+	height: auto;
+	width: 24px;
+	filter: brightness(1000);
+	background-size: 18px;
+}
+
+.global-nav-bar > * {
+	display: inline-block;
+	padding: 0;
+	margin: 0;
+}
+
+#global-nav-link {
+	margin: 0;
+	color: #fff;
+	height: auto;
+	margin-right: 1rem;
+}
+
+#global-nav-link::before, #global-nav-link::after {
+	filter: grayscale() brightness(1000);
+}
+
+#hotSpots {
+	display: block;
+	top: 0;
+	position: static;
+	height: 2rem !important;
+	border-radius: 3px;
+	background-color: hsl(0,100%,30%);
+}
+
+#hotSpots .funZone {
+	display: block;
+	width: auto;
+	overflow: hidden;
+	height: 2rem !important;
+}
+
+#headerLanguageSelector {
+	display: flex;
+	align-items: center;
+	padding: 0 .5rem;
+}
+
+#headerLanguageSelector a:first-of-type {
+	margin-right: .5rem;
+}
+
+#headerLanguageSelector a {
+	padding: 0 !important;
+	display: inline-block;
+	position: relative;
+}
+
+.flyout-menu {
+	top: 3.2rem !important;
+}
+
 .locationPane {
 	background-color: #111 !important;
 }
@@ -43,18 +170,21 @@ table.bouncer {
 .tabWrapper-left,
 .tabWrapper-center,
 .tabWrapper-right {
+	margin-left: 0;
+	height: 2rem;
+	padding: .5rem 1.5rem .7rem;
 	box-shadow: none !important;
 }
 
 .tabWrapper-left::before,
 .tabWrapper-center::before,
 .tabWrapper-right::before {
+	display: none;
 	background-color: #333;
 }
 
 table.appTabs tbody tr td.active a {
 	background-color: #111;
-	border: 1px solid #111;
 }
 
 .appTabs td {
@@ -454,13 +584,13 @@ table.appTabs tbody tr td.active a {
 	font-family: 'Andale Mono', Menlo, monospace;
 	font-size: 0.8rem;
 	text-transform: uppercase;
-	background-color: #333;
+	background-color: #444;
 	padding: .2rem .4rem .2rem .4rem;
 	border-radius: 3px;
 	margin-left: .3rem;
 }
 
-#breadcrumbs li .contextArrowDown {
+#breadcrumbs li .contextArrowDown, #breadcrumbs li .courseArrow {
 	display: none;
 }
 
