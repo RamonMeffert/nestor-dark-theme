@@ -12,6 +12,7 @@
   - [ ] Grades
   - [ ] Group enroll
   - [ ] Sidebar
+- [ ] Current courses: fix search results 
 - [ ] Course evaluations module (don't know how it looks rn as I have no open evaluations)
 - [x] Improve user results module
   - [x] remove outside padding
