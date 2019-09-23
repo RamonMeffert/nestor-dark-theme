@@ -1,6 +1,8 @@
 # To Do
 
 - [ ] User menu dropdown
+  - [ ] Dark theme
+  - [ ] Notification badge (location is off, color makes it kinda invisible)
 - [ ] Login page
 - [ ] Course pages
   - [ ] Messages
@@ -14,6 +16,7 @@
   - [ ] --border-radius-small
   - [ ] --border-radius-large
   - [ ] --top-menu-color
+- [ ] Check smaller window/screen sizes
 - [x] Smaller header
   - [x] Logo + slogan (maybe remove slogan?)
   - [x] User menu (this seems to be placed w/ position:absolute :()
