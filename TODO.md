@@ -1,8 +1,9 @@
 # To Do
 
-- [ ] User menu dropdown
-  - [ ] Dark theme
-  - [ ] Notification badge (location is off, color makes it kinda invisible)
+- [ ] Notification area
+  - [ ] Menu
+  - [ ] Page
+  - [ ] Badge (location is off, color makes it kinda invisible)
 - [ ] Login page
 - [ ] Course pages
   - [ ] Messages
