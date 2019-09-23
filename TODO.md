@@ -10,12 +10,22 @@
   - [ ] Grades
   - [ ] Group enroll
   - [ ] Sidebar
-- [ ] Current courses: fix search results 
+- [ ] Current courses
+  - [ ] Fix search results
+  - [ ] Fix hover color
 - [ ] Course evaluations module (don't know how it looks rn as I have no open evaluations)
 - [ ] Move often-used values to css vars (this also allows configurability)
   - [ ] --border-radius-small
   - [ ] --border-radius-large
-  - [ ] --top-menu-color
+  - [ ] --top-menu-primary-color
+  - [ ] --top-menu-secondary-color
+  - [ ] --page-background-color
+  - [ ] --module-background-color
+  - [ ] --module-alternate-color
+  - [ ] --module-hover
+  - [ ] --module-alternate-hover
+  - [ ] --link-color
+  - [ ] --link-hover-color
 - [ ] Check smaller window/screen sizes
 - [x] Smaller header
   - [x] Logo + slogan (maybe remove slogan?)
