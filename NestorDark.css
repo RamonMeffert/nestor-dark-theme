@@ -1,3 +1,4 @@
+@-moz-document domain("nestor.rug.nl") {
 /* 
 University of Groningen Student Portal Dark Theme
 
@@ -243,7 +244,7 @@ table.appTabs tbody tr td.active a {
 	width: calc(100% - 2rem) !important;
 }
 
-.mc_header {
+.mc_header, .notifHeaderDiv {
 	border-bottom: 1px solid #444;
 	border-top: 1px solid #444;
 	padding: .5rem 1.1rem;
@@ -330,13 +331,53 @@ table.appTabs tbody tr td.active a {
 	color: #fefefe;
 }
 
+.collapsible {
+	padding: 0;
+}
+
 .collapsible table {
 	color: #fefefe;
 }
 
-.collapsible tr {
+.collapsible tr,
+.collapsible th {
+	color: #fefefe !important;
 	border: none !important;
 	transition: background-color .2s;
+}
+
+.collapsible tr.nostyle {
+	display: none;
+}
+
+.collapsible tr td {
+	border: none !important;
+	padding: 10px 5px !important;
+}
+
+#div_4953_1 tr td:nth-of-type(2) {
+	padding-left: 15px !important;
+}
+
+#div_4953_1 tr td:nth-of-type(5) {
+	padding-right: 15px !important;
+}
+
+.notifHeaderDiv a::before {
+	content: "█▌";
+	position: absolute;
+	color: #222;
+	font-weight: bold;
+}
+
+.notifHeaderDiv a {
+	font-weight: normal;
+	margin-left: -4ch;
+	padding-left: .7rem;
+}
+
+.collapsible tr:nth-of-type(2n + 1) {
+	background-color: #222;
 }
 
 .collapsible tr:nth-of-type(2n) {
@@ -608,4 +649,174 @@ table.appTabs tbody tr td.active a {
 	font-size: 2rem;
 	vertical-align: -3px;
 	line-height: .8rem;
+}
+
+/* # Notification center*/
+
+/* ## Grades */
+
+.gradeTableNew .row,
+.gradeTableNew .calculatedRow.row {
+	box-shadow: none;
+	border: none;
+	color: white;
+}
+
+.gradeTableNew .row:hover {
+	background-color: #333;
+	border: none;
+}
+
+.gradeTableNew .row:nth-of-type(2n) {
+	background-color: #333;
+}
+}
+
+@-moz-document domain("signon.rug.nl") {
+body {
+	background: #111;
+}
+
+body .w2 {
+	background: #111;
+}
+
+body .w3 {
+	background: transparent;
+	color: white;
+	border-radius: 3px;
+}
+
+h1 {
+	text-align: center;
+	text-shadow: none !important;
+}
+
+.logonForm {
+	border-radius: 3px;
+	border: none;
+	box-shadow: none;
+	background: #333;
+	margin: 0 auto;
+	float: none !important;
+	height: auto !important;
+	padding: 1.8rem 2rem;
+}
+
+.logonForm table {
+	width: 100%;
+}
+
+.logonForm table tr {
+	border: none !important;
+}
+
+.logonForm td:first-child {
+	display: none;
+}
+
+.logonForm td {
+	padding: 0 0 1rem 0 !important;
+}
+
+.logonForm tr:last-of-type td {
+	padding-bottom: 0 !important;
+}
+
+.logonForm td input.field {
+	width: 100%;
+	box-sizing: border-box;
+	margin-left: 0;
+	font-size: .8rem;
+	background-color: #555;
+	border: 1px solid #666;
+	color: white;
+}
+
+.logonForm .button-holder {
+	margin: 0 !important;
+}
+
+.logonForm .button-box {
+	background: none;
+	width: 100%;
+}
+
+.logonForm .button-box .button {
+	background: dodgerblue;
+	text-align: center;
+	font-weight: normal;
+	border-radius: 3px;
+	font-size: .8rem;
+	margin: 0;
+	padding: .5em;
+	width: 100%;
+	height: auto;
+}
+
+.logonForm .button-box .button:hover {
+	background-color: deepskyblue;
+}
+
+.logonForm .login-error {
+	margin: 0;
+}
+
+.nestorLogonContent {
+	display: none;
+}
+
+.greyBox {
+	display: none;
+}
+
+header#header {
+	background-image: none;
+	height: auto;
+	padding: 0;
+}
+
+header#header .block {
+	height: auto;
+}
+
+header#header .nav-holder {
+	display: none;
+}
+
+header#header .search-bar {
+	display: none;
+}
+
+header#header .logo {
+	display: none;
+}
+
+header#header .language-nav {
+	padding: .7rem 1rem;
+	background-color: #333;
+	border-radius: 0 0 3px 3px;
+}
+
+header#header .language-nav li {
+	padding: 0;
+}
+
+header#header .language-nav li:not(:first-of-type) {
+	margin-left: .7rem;
+}
+
+div#main {
+	padding: 0;
+	background-image: none;
+	margin-top: 30vh;
+}
+
+div#main .logonColumns {
+	padding: 0;
+}
+
+footer#footer {
+	display: none;
+}
 }
