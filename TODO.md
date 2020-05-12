@@ -4,7 +4,6 @@
   - [ ] Menu
   - [ ] Page
   - [ ] Badge (location is off, color makes it kinda invisible)
-- [ ] Login page
 - [ ] Course pages
   - [ ] Messages
   - [ ] Tables
@@ -28,6 +27,7 @@
   - [ ] --link-color
   - [ ] --link-hover-color
 - [ ] Check smaller window/screen sizes
+- [x] Login page
 - [x] Smaller header
   - [x] Logo + slogan (maybe remove slogan?)
   - [x] User menu (this seems to be placed w/ position:absolute :()
