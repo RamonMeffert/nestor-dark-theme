@@ -1,8 +1,7 @@
-@-moz-document domain("nestor.rug.nl") {
 /* 
 University of Groningen Student Portal Dark Theme
 
-Copyright 2019 Ramon Meffert
+Copyright 2019–2020 Ramon Meffert
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
@@ -10,813 +9,1331 @@ The above copyright notice and this permission notice shall be included in all c
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
-body {
-	background-color: #111;
-	color: #fefefe;
+@-moz-document domain("nestor.rug.nl"), domain("signon.rug.nl") {
+/* css variables */
+:root {
+	--co-primary: #bc1919;
+	--co-secondary: #00bfff;
+	--co-text: white;
+	--bg-primary: black;
+	--bg-secondary: #212121;
+	--bg-hover: #323232;
+	--bg-active: #434343;
+	--fg-main: white;
+	--op-focus: 1;
+	--op-hover: 0.8;
+	--op-blur: 0.6;
+	--spacing: .5rem;
+	--br: .3rem;
+	/* border radius */
+	--text-size: 1.1rem;
+	--text-small: calc(0.9 * var(--text-size));
+	--text-tiny: calc(0.8 * var(--text-small));
+	--heading-small: 1.3rem;
+}
 }
 
-a {
-	color: rgb(93, 192, 255);
+@-moz-document domain("nestor.rug.nl"), domain("signon.rug.nl") {
+/* ## Header and navigation  ## */
+/* Main bg color */
+#globalNavPageNavArea {
+	background-color: var(--bg-secondary) !important;
 }
 
-a:hover {
-	color: hsl(203, 100%, 78%);
-	text-decoration: none !important;
-}
-
-/* Top branding banner */
-.brandingImgWrap {
-	background-color: hsl(0, 100%, 30%) !important;
-	height: 2rem;
-	padding: .5rem 1.5rem .7rem;
-}
-
-.bannerImage {
-	padding: 0;
-	margin: 0;
-	height: 2rem;
-	background-size: auto 2rem;
-	display: inline-block;
-	filter: invert() grayscale() brightness(10);
-	width: auto;
-}
-
-/* Menu bar */
-#topTabs {
-	background-color: hsl(0, 100%, 20%) !important;
-}
-
-.appTabs a {
-	padding: 0;
-	margin: 0;
-	line-height: 2rem;
+/* Blue accent color part */
+#topTabs.bgBanner.topTabs {
 	background-color: transparent !important;
-	font-weight: normal;
-	color: rgba(255,255,255,0.7) !important;
+}
+
+.brandingImgWrap,
+.tabWrapper-left,
+.tabWrapper-center,
+.tabWrapper-right {
+	background-color: transparent;
+}
+
+.tabWrapper-left,
+.tabWrapper-center,
+.tabWrapper-right {
+	margin: 0;
+	width: auto;
+	position: absolute;
+	top: 0;
+	left: 14rem;
+	height: 3rem;
+	;
+	padding: var(--spacing) calc(3 * var(--spacing));
+	;
+}
+
+/* "Student portal" branding */
+.tabWrapper-left::before,
+.tabWrapper-center::before,
+.tabWrapper-right::before,
+.appTabs::before {
+	display: none;
+}
+
+/* Menu items */
+.appTabs {
+	height: 100%;
+}
+
+.appTabs td {
+	height: 100% !important;
+	display: block;
+}
+
+.appTabs a,
+.appTabs a:hover,
+.appTabs a:active,
+.appTabs a:focus {
+	margin: 0;
+	padding: 0;
+	line-height: 100% !important;
+	height: 100% !important;
+	background-color: transparent !important;
+	color: var(--fg-main) !important;
+	opacity: var(--op-blur);
+	font-family: "Open Sans" !important;
+	font-weight: 400 !important;
+	margin-right: calc(3 * var(--spacing));
+	display: flex;
+	align-items: center;
+	border: none !important;
+	outline: none !important;
+	position: relative;
+}
+
+.appTabs a span {
+	border: none !important;
+	padding: 0 !important;
 }
 
 .appTabs a:hover {
-	background: none !important;
+	opacity: var(--op-hover);
 }
 
-.appTabs td.active a:hover * {
-	color: white !important;
+.appTabs a:focus::before,
+.appTabs a:active::before {
+	content: '';
+	display: block;
+	background-color: var(--co-text);
+	width: 100%;
+	padding: 0 var(--spacing);
+	height: 1.5em;
+	position: absolute;
+	left: calc(-1 * var(--spacing));
+	z-index: -1;
+	border-radius: var(--br);
 }
 
-.appTabs td:not(.active) a:hover * {
-	color: rgba(255,255,255,0.85) !important;
+.appTabs a:hover span {
+	color: var(--co-secondary);
 }
 
-.appTabs td:not(:last-of-type) {
-	padding-right: 1rem !important;
+.appTabs .active a {
+	opacity: var(--op-focus);
+	color: var(--co-text) !important;
 }
 
-.appTabs td.active a {
-	color: #fff !important;
+.brandingImgWrap {
+	height: 3rem;
+	padding: var(--spacing) calc(3 * var(--spacing));
+	;
 }
 
+.brandingImgWrap a {
+	display: block;
+	position: static;
+}
+
+/* Randomly placed slogan */
 .brandingImgWrap a::after {
 	display: none;
 }
 
-.global-nav-bar {
-	height: 2rem;
-	padding: .6rem 1.5rem .6rem;
-	display: flex;
-	align-items: center !important;
-	margin: 0;
-}
-
-.global-nav-bar.logout {
-	padding-left: 0;
-}
-
-.global-nav-bar.logout a {
-	height: auto;
-	width: 24px;
-	filter: brightness(1000);
-	background-size: 18px;
-}
-
-.global-nav-bar > * {
-	display: inline-block;
+/* Huge logo needs to be smaller*/
+.bannerImage {
+	height: 3rem;
+	width: 11rem;
+	background-size: auto 3rem;
+	background-position: left;
 	padding: 0;
 	margin: 0;
-}
-
-#global-nav-link {
-	margin: 0;
-	color: #fff;
-	height: auto;
-	margin-right: 1rem;
-}
-
-#global-nav-link::before, #global-nav-link::after {
-	filter: grayscale() brightness(1000);
-}
-
-#hotSpots {
-	display: block;
-	top: 0;
-	position: static;
-	height: 2rem !important;
-	border-radius: 3px;
-	background-color: hsl(0,100%,30%);
-}
-
-#hotSpots .funZone {
-	display: block;
-	width: auto;
-	overflow: hidden;
-	height: 2rem !important;
-}
-
-#headerLanguageSelector {
-	display: flex;
-	align-items: center;
-	padding: 0 .5rem;
-}
-
-#headerLanguageSelector a:first-of-type {
-	margin-right: .5rem;
-}
-
-#headerLanguageSelector a {
-	padding: 0 !important;
-	display: inline-block;
-	position: relative;
-}
-
-.flyout-menu {
-	top: 3.2rem !important;
-}
-
-.locationPane {
-	background-color: #111 !important;
-}
-
-.portal .container {
-	background-color: #111 !important;
-	padding: 0 !important;
-}
-
-.brandingImgWrap {
-	background-color: #111;
 }
 
 table.bouncer {
 	border: none;
 }
 
-.tabWrapper-left,
-.tabWrapper-center,
-.tabWrapper-right {
-	margin-left: 0;
-	height: 2rem;
-	padding: .5rem 1.5rem .7rem;
-	box-shadow: none !important;
+/* Menu on the right (user info, language) */
+#global-nav {
+	height: 3rem;
+	padding: var(--spacing) calc(3 * var(--spacing));
 }
 
-.tabWrapper-left::before,
-.tabWrapper-center::before,
-.tabWrapper-right::before {
-	display: none;
-	background-color: #333;
-}
-
-table.appTabs tbody tr td.active a {
-	background-color: #111;
-}
-
-.appTabs td {
-	padding-bottom: 0 !important;
-}
-
-#topTabActive,
-.appTabs .active a,
-.appTabs .active a:hover,
-.appTabs .active a:focus {
-	height: auto;
-}
-
-.appTabs::before {
-	border: none;
-	box-shadow: none !important;
-}
-
-.reorderableModule {
-	background-color: #222;
-	color: #fefefe;
-	border-radius: 5px;
-	overflow: hidden;
-}
-
-.reorderableModule h2 {
-	background-color: #333;
-	color: #fefefe;
-}
-
-.reorderableModule:hover {
-	background-color: #222;
-	color: #fefefe;
-}
-
-.reorderableModule:hover h2 {
-	color: #fefefe;
-}
-
-.edit_controls a.moduleToggleLink {
-	filter: brightness(2);
-}
-
-.mc_search input,
-#pg_grades .search,
-#RUGLibrarySearch input.query {
-	background-color: #111 !important;
-	color: #fefefe;
-	border: 1px solid #555 !important;
-	border-radius: 3px;
-}
-
-.mc_search input {
-	margin: 0 1rem 0.6em 1rem !important;
-	box-sizing: border-box;
-	width: calc(100% - 2rem) !important;
-}
-
-.mc_header, .notifHeaderDiv {
-	border-bottom: 1px solid #444;
-	border-top: 1px solid #444;
-	padding: .5rem 1.1rem;
-	background-color: #333;
-	width: calc(100% - 2.2rem);
-	display: block;
-	margin: 0;
-}
-
-.mc_header span {
-	margin-right: .7rem;
-}
-
-/* WHY do these brs need to be here. They don't. */
-#mc_listWrapper br,
-#mc_starredCourses br {
-	display: none;
-}
-
-.mc_yearNav {
-	width: calc(100% - 2.2rem);
-	display: flex;
-	justify-content: space-between;
-	padding: .5rem 1.1rem;
-	border-bottom: 1px solid #444;
-	background-color: #333;
-}
-
-.mc_yearNav > * {
-	align-self: center;
-	display: block;
-}
-
-#mc_enrollmentsWrapper::before {
-	content: "☰  Available courses";
-	border-bottom: 1px solid #444;
-	border-top: 1px solid #444;
-	padding: .5rem 1.1rem;
-	background-color: #333;
-	width: 100%;
-	display: block;
-	font-weight: bold;
-	margin: 0;
-}
-
-.mc_yearNav > .mc_selectedYearCode {
-	padding: .3rem .6rem .4rem .6rem;
-	background-color: rgb(93, 192, 255);
-	color: #222;
-	font-size: 1em;
-}
-
-.mc_yearNav > a {
-	padding: .3rem .6rem .4rem .6rem;
-	background-color: #444;
-	color: #fefefe;
-	border-radius: 3px;
-}
-
-.mc_yearNav > a:first-of-type > span {
-	margin-right: .5rem;
-	vertical-align: 1.5px;
-}
-
-/* Target the last one ONLY if it is not also the first one*/
-.mc_yearNav > a:last-of-type:not(:first-of-type) > span {
-	margin-left: .5rem;
-	vertical-align: 1.5px;
-}
-
-.mc_enrollmentListClass li:hover {
-	background-color: #222 !important;
-}
-
-.mc_enrollmentListClass li {
-	border: none;
-}
-
-.mc_enrollmentListClass > li:nth-of-type(2n) {
-	background-color: #333;
-}
-
-.mc_enrollmentListClass .mc_star {
-	color: #fefefe;
-}
-
-.collapsible {
+#global-nav-link {
+	height: 3rem;
 	padding: 0;
-}
-
-.collapsible table {
-	color: #fefefe;
-}
-
-.collapsible tr,
-.collapsible th {
-	color: #fefefe !important;
-	border: none !important;
-	transition: background-color .2s;
-}
-
-.collapsible tr.nostyle {
-	display: none;
-}
-
-.collapsible tr td {
-	border: none !important;
-	padding: 10px 5px !important;
-}
-
-#div_4953_1 tr td:nth-of-type(2) {
-	padding-left: 15px !important;
-}
-
-#div_4953_1 tr td:nth-of-type(5) {
-	padding-right: 15px !important;
-}
-
-.notifHeaderDiv a::before {
-	content: "█▌";
-	position: absolute;
-	color: #222;
-	font-weight: bold;
-}
-
-.notifHeaderDiv a {
-	font-weight: normal;
-	margin-left: -4ch;
-	padding-left: .7rem;
-}
-
-.collapsible tr:nth-of-type(2n + 1) {
-	background-color: #222;
-}
-
-.collapsible tr:nth-of-type(2n) {
-	background-color: #333;
-}
-
-.news_hotlinks_tabs {
-	border: none;
-}
-
-.news_hotlinks_tabs div:first-child {
-	display: none;
-}
-
-.collapsible tr:nth-of-type(2n):hover {
-	background-color: #393939;
-}
-
-.collapsible tr:nth-of-type(2n+1):hover {
-	background-color: #292929;
-}
-
-.tt-dayheader {
-	color: #fefefe;
-}
-
-.tt-time {
-	background-color: #888;
-	color: #fefefe;
-}
-
-#pg_PrintAction {
-	margin: 1.1rem 1.1rem 1.1rem 0;
-	display: flex;
-	width: 18px;
-	padding-top: 5px;
-	order: 2;
-}
-
-#pg_PrintAction i::before {
-	line-height: 20px;
-}
-
-#pg_Search {
-	order: 1;
-	box-sizing: border-box;
-	margin: 1.1rem;
-	width: calc(100% - 2.2rem - 19px - 1.1rem);
-}
-
-/* For whatever reason, pg_grades is a list styled as if it's a table which makes formatting hell */
-#pg_grades {
-	display: flex;
-	flex-direction: row;
-	flex-wrap: wrap;
-}
-
-#pg_grades label:first-of-type {
-	margin-left: 1.1rem;
-}
-
-/* Right margin is the same width as the print icon space */
-#pg_grades label:last-of-type {
-	margin-right: calc(1.1rem + 19px + 1.1rem);
-}
-
-#pg_grades label {
+	margin-right: calc(3 * var(--spacing));
+	color: var(--co-text);
 	cursor: pointer;
-	order: 3;
-	box-sizing: border-box;
-	flex-grow: 1;
-	padding: .3rem .6rem .3rem .6rem;
-	background-color: #333;
-	border: 1px solid #444;
-	border-radius: 3px;
-	margin: 0 .55rem;
 }
 
-#pg_grades label input {
-	margin-right: .7rem;
-	margin-bottom: 6px;
-}
-
-#pg_gradesList .pg_main-course,
-#pg_HeaderRow {
-	padding: 0.3rem 1.1rem;
-	width: calc(100% - 2rem);
-}
-
-#pg_HeaderRow {
-	border-top: 1px solid #444;
-	border-bottom: 1px solid #444;
-}
-
-.pg_table {
-	order: 4;
-	margin-top: 1.1rem;
-	border-bottom: 1px solid #444;
-}
-
-.pg_table li {
-	border: none;
-	padding: 0;
-}
-
-.pg_table li:nth-of-type(2n-1) {
-	background-color: #333;
-}
-
-.pg_courseCode {
-	font-size: .8rem;
-	font-family: 'Andale Mono', Monaco;
-	align-self: center;
-}
-
-.pg_pagination {
-	width: 100%;
-	text-align: center;
-	order: 5;
-}
-
-.pg_pagination li {
-	padding: .2rem .5rem .3rem .5rem;
-}
-
-.pg_pagination li[class="active"] {
-	text-decoration: none;
-	background-color: rgb(93, 192, 255);
-	border-radius: 3px;
-}
-
-.pg_pagination li[class="active"] a {
-	color: #222;
-}
-
-.pg_pagination #pg_showAllLink {
-	background-color: rgb(93, 192, 255);
-	border-radius: 3px;
-	color: #222;
-	font-size: .8rem;
-	padding: .2rem .6rem .3rem .6rem;
-	display: inline-block;
-	text-transform: uppercase;
-	margin-top: 5px;
-	margin-bottom: 10px;
-}
-
-.pg_pagination #pg_showAllLink:hover {
-	background-color: hsl(203, 100%, 78%);
-	text-decoration: none;
-}
-
-/* Ah yes, a disabled list item. Of course.*/
-.pg_pagination li[class="disabled"] {
-	background-color: transparent !important;
-	opacity: 1
-}
-
-.pg_lastUpdate,
-.pg_total,
-.pg_disclaimer,
-.pg_pagination {
-	padding: .5rem 1rem !important;
-	margin: 0 !important;
-}
-
-/* Remove odd padding on elements */
-#module\:_4957_1 .collapsible,
-#module\:_4945_1 .collapsible,
-#module\:_4955_1 .collapsible,
-#module\:_4943_1 .collapsible,
-#module\:_5048_1 .collapsible,
-#module\:_4939_1 .collapsible {
-	padding: 0 !important;
-}
-
-/* elements in iframes cannot be styled, but rotating the hue, inverting the iframe and decreasing contrast makes it fit a bit better. Currently applied to "Nice to Know" and "Need to Know" modules*/
-#module\:_4960_1 iframe,
-#module\:_4959_1 iframe {
-	filter: hue-rotate(180deg) invert() contrast(.73);
-}
-
-#RUGsearch {
-	border: none;
-}
-
-#RUGsearch .tab {
-	background-color: transparent !important;
-	border-bottom: 3px solid;
-	border-color: #555;
-}
-
-#RUGsearch .tab.active {
-	border-bottom: 3px solid #fefefe;
-}
-
-#RUGsearch .tab a {
-	padding: 1em;
-}
-
-#RUGsearch .tab a img {
-	max-height: 30px !important;
-}
-
-#RUGsearch .box {
-	padding: 2em 2em 0 2em;
-}
-
-#div_4944_1 a {
-	background-color: #333 !important;
-	border-radius: 5px;
-	color: #fefefe;
-	transition: background-color 0.2s;
-}
-
-#div_4944_1 a:hover {
-	background-color: #444 !important;
-}
-
-#div_4944_1 img {
-	width: 22px;
-	border-radius: 2px;
-	vertical-align: sub;
-	margin-left: 3px;
-}
-
-/* COURSE PAGES */
-#breadcrumbs {
-	background-color: #222;
-	border: none;
-	padding: 0.5rem 1.5rem 0.7rem;
-}
-
-#breadcrumbs li,
-#breadcrumbs li a {
-	color: #ccc;
-	font-size: 1rem;
-	font-weight: normal;
-	padding: 0 !important;
-	margin: 0 !important;
-	overflow: visible;
-}
-
-#breadcrumbs li a .courseId {
-	font-family: 'Andale Mono', Menlo, monospace;
-	font-size: 0.8rem;
-	text-transform: uppercase;
-	background-color: #444;
-	padding: .2rem .4rem .2rem .4rem;
-	border-radius: 3px;
-	margin-left: .3rem;
-}
-
-#breadcrumbs li .contextArrowDown, #breadcrumbs li .courseArrow {
+#global-nav-link::before {
 	display: none;
 }
 
-#breadcrumbs li:not(:first-of-type) {
-	border: none !important;
-	margin-top: .2rem !important;
-	margin-left: .8rem !important;
-}
-
-#breadcrumbs li:not(:first-of-type)::before {
-	content: '»';
-	color: #777;
-	display: inline-block;
-	margin-right: .3rem;
-	font-size: 2rem;
-	vertical-align: -3px;
-	line-height: .8rem;
-}
-
-/* # Notification center*/
-
-/* ## Grades */
-
-.gradeTableNew .row,
-.gradeTableNew .calculatedRow.row {
-	box-shadow: none;
-	border: none;
-	color: white;
-}
-
-.gradeTableNew .row:hover {
-	background-color: #333;
-	border: none;
-}
-
-.gradeTableNew .row:nth-of-type(2n) {
-	background-color: #333;
-}
-}
-
-@-moz-document domain("signon.rug.nl") {
-body {
-	background: #111;
-}
-
-body .w2 {
-	background: #111;
-}
-
-body .w3 {
-	background: transparent;
-	color: white;
-	border-radius: 3px;
-}
-
-h1 {
-	text-align: center;
-	text-shadow: none !important;
-}
-
-.logonForm {
-	border-radius: 3px;
-	border: none;
-	box-shadow: none;
-	background: #333;
-	margin: 0 auto;
-	float: none !important;
-	height: auto !important;
-	padding: 1.8rem 2rem;
-}
-
-.logonForm table {
-	width: 100%;
-}
-
-.logonForm table tr {
-	border: none !important;
-}
-
-.logonForm td:first-child {
-	display: none;
-}
-
-.logonForm td {
-	padding: 0 0 1rem 0 !important;
-}
-
-.logonForm tr:last-of-type td {
-	padding-bottom: 0 !important;
-}
-
-.logonForm td input.field {
-	width: 100%;
-	box-sizing: border-box;
-	margin-left: 0;
-	font-size: .8rem;
-	background-color: #555;
-	border: 1px solid #666;
-	color: white;
-}
-
-.logonForm .button-holder {
-	margin: 0 !important;
-}
-
-.logonForm .button-box {
+#global-nav-link::after {
 	background: none;
-	width: 100%;
+	content: "▾";
+	width: auto;
+	height: auto;
+	font-size: 1rem;
+	opacity: var(--op-blur);
+	vertical-align: top;
 }
 
-.logonForm .button-box .button {
-	background: dodgerblue;
-	text-align: center;
-	font-weight: normal;
-	border-radius: 3px;
-	font-size: .8rem;
+.global-nav-bar.logout {
+	height: 3rem !important;
+	margin: var(--spacing);
+	margin-right: calc(3 * var(--spacing));
+	margin-left: 0;
+}
+
+.global-nav-bar.logout > a,
+.global-nav-bar.logout > a:hover,
+.global-nav-bar.logout > a:active,
+.global-nav-bar.logout > a:focus {
+	height: 3rem;
+	background-size: 100%;
+	background-position: 50% 46% !important;
+	margin: 0 !important;
+	filter: brightness(255);
+	opacity: var(--op-blur);
+	width: 1.2rem !important;
+}
+
+.global-nav-bar.logout > a:hover {
+	opacity: var(--op-hover);
+}
+
+#hotSpots {
 	margin: 0;
-	padding: .5em;
-	width: 100%;
+	padding: 0;
 	height: auto;
 }
 
-.logonForm .button-box .button:hover {
-	background-color: deepskyblue;
+/* For whatever reason the language selection section is called the "fun zone" */
+.funZone {
+	display: block;
+	overflow: hidden;
+	height: 3rem;
 }
 
-.logonForm .login-error {
-	margin: 0;
-}
-
-.nestorLogonContent {
-	display: none;
-}
-
-.greyBox {
-	display: none;
-}
-
-header#header {
-	background-image: none;
-	height: auto;
+.funZone a {
+	width: auto;
+	overflow: hidden;
+	text-decoration: none !important;
+	font-size: 1.2rem;
 	padding: 0;
 }
 
-header#header .block {
-	height: auto;
+.funZone a:hover::before {
+	opacity: var(--op-hover);
 }
 
-header#header .nav-holder {
+.funZone a:focus {
+	opacity: var(--op-focus);
+	outline: none !important;
+}
+
+/* Let's just hope they don't change the order of these buttons */
+.funZone a:first-of-type::before {
+	content: "NL";
+	margin-right: var(--spacing);
+}
+
+.funZone a:last-of-type::before {
+	content: "EN"
+}
+
+.funZone a::before {
+	display: block !important;
+	opacity: var(--op-blur);
+	color: var(--co-text);
+}
+
+.funZone a img {
 	display: none;
 }
 
-header#header .search-bar {
-	display: none;
+#headerLanguageSelector {
+	height: 3rem;
+	display: flex;
+	align-items: center;
 }
 
-header#header .logo {
-	display: none;
+.flyout-menu {
+	top: calc(3rem + 2 * var(--spacing));
+	width: 100%;
 }
 
-header#header .language-nav {
-	padding: .7rem 1rem;
-	background-color: #333;
-	border-radius: 0 0 3px 3px;
-}
-
-header#header .language-nav li {
-	padding: 0;
-}
-
-header#header .language-nav li:not(:first-of-type) {
+#badgeTotalCount {
+	position: static;
+	top: unset;
+	left: unset;
+	right: unset;
+	vertical-align: 20%;
+	font-size: .7em;
+	line-height: .7em;
+	min-width: 1.4rem;
+	min-height: 1.4rem;
+	border-radius: .7rem;
+	padding: 0 .44rem;
+	box-sizing: border-box;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
 	margin-left: .7rem;
 }
 
-div#main {
-	padding: 0;
-	background-image: none;
-	margin-top: 30vh;
+#global-nav-flyout {
+	display: flex;
+	flex-direction: column;
+	box-shadow: 0 .5rem 2rem rgba(0, 0, 0, 0.8);
+	border-radius: 0 0 var(--br) var(--br);
+	overflow: hidden;
+	background-color: var(--bg-primary);
 }
 
-div#main .logonColumns {
+#global-nav-tools {
+	float: none;
+	width: 100%;
+	height: auto;
+	background-color: var(--bg-secondary);
+	border-bottom: 1px solid var(--bg-hover);
+}
+
+#global-nav-tools ul {
+	display: flex;
+	justify-content: space-between;
+	width: 100%;
+	margin: 0;
+	padding: .5rem 1rem;
+	box-sizing: border-box;
+}
+
+#vertical_container {
+	position: static;
+	overflow: visible;
+	width: 100%;
+}
+
+#bottomButtons {
+	width: 100%;
+	display: flex;
+	background-color: var(--bg-secondary);
+}
+
+#bottomButtons li {
+	width: auto;
+	flex-grow: 1;
+	border: none;
+}
+
+.flyout-menu .accordion_toggle span {
+	background-color: var(--bg-secondary);
+	border-bottom: 1px solid var(--bg-hover);
+	padding: var(--spacing) calc(2 * var(--spacing));
+	color: var(--co-text) !important;
+	font-weight: normal;
+}
+
+.flyout-menu .accordion_toggle:hover span {
+	background-color: var(--bg-hover);
+	color: var(--co-text) !important;
+}
+
+.flyout-menu .accordion_toggle[aria-expanded="true"] span {
+	background-color: var(--bg-hover);
+}
+
+.flyout-menu .accordion_content {
+	background-color: var(--bg-secondary);
+	box-shadow: none;
+	scrollbar-width: none;
+}
+
+.flyout-menu .labelMenuItem {
+	padding: var(--spacing) calc(2 * var(--spacing));
+	color: var(--co-text);
+	text-transform: none;
+	font-size: 1.3rem;
+}
+
+.flyout-menu .course-list.accordion-list.courses {
+	margin: 0;
+}
+
+.accordion_content li {
+	margin: 0;
+	padding: var(--spacing) calc(2 * var(--spacing));
+}
+
+.accordion_content li a {
+	color: var(--co-text);
+	font-weight: normal !important;
+	border-bottom: none !important;
+	line-height: 1.5em;
+}
+
+.accordion_content li a:hover {
+	text-decoration: underline;
+}
+}
+
+@-moz-document domain("nestor.rug.nl"), domain("signon.rug.nl") {
+/* Background color and 'reset' */
+#learn-oe-body,
+#globalNavPageNavArea,
+.locationPane,
+html {
+	background-color: var(--bg-primary);
+}
+
+.portal .container {
+	background-color: transparent;
 	padding: 0;
 }
 
-footer#footer {
+/* Hide corona information */
+.containerPortal > div:first-of-type {
 	display: none;
+}
+
+.portal .container {
+	padding: 0 var(--spacing);
+}
+
+.portal .container .column-3 {
+	margin: 0;
+}
+
+.portal .container .portlet {
+	margin: calc(2 * var(--spacing)) var(--spacing) !important;
+	box-shadow: none;
+	border: 1px solid rgba(255, 255, 255, 0.1);
+	border-radius: var(--br);
+	overflow: hidden;
+	background-color: var(--bg-secondary);
+	color: var(--co-text);
+}
+
+.portal .container .portlet .dragHandle {
+	background-color: var(--bg-secondary);
+	transition: background .1s;
+	border-bottom: 1px solid var(--bg-hover);
+	padding: calc(2 * var(--spacing)) calc(6 * var(--spacing));
+}
+
+.portal .container .portlet:hover .reorder {
+	border: none;
+}
+
+.portal .container .portlet .dragHandle:hover {
+	background-color: var(--bg-hover);
+}
+
+.portal .container .portlet .dragHandle .moduleTitle {
+	color: var(--co-text);
+	font-size: var(--heading-small);
+	line-height: var(--heading-small);
+}
+
+.portal .container .portlet li {
+	border: none;
+}
+
+.portal .container .portlet input[type=text] {
+	background-color: var(--bg-secondary) !important;
+	color: var(--co-text);
+	padding: var(--spacing) calc(2 * var(--spacing)) !important;
+	height: auto !important;
+	border: 1px solid var(--bg-hover) !important;
+	border-radius: var(--br);
+	font-size: 1.1rem !important;
+}
+
+.portal .container .portlet input[type=text]:focus {
+	box-shadow: none !important;
+	background-color: var(--bg-)
+}
+
+.collapsible {
+	padding: calc(2 * var(--spacing));
+}
+
+#globalNavPageContentArea {
+	max-width: 1200px;
+	margin: 0 auto;
+}
+
+.portlet .edit_controls {
+	padding: 0;
+}
+
+.portlet .edit_controls .moduleToggleLink {
+	display: block;
+	left: 0;
+	top: 0;
+	margin: 0 !important;
+	padding: calc(2 * var(--spacing)) !important;
+	height: var(--heading-small);
+	width: var(--heading-small);
+	background-position: center !important;
+}
+
+.portlet .edit_controls .moduleCloseLink {
+	display: block;
+	right: 0;
+	top: 0;
+	margin: 0 !important;
+	padding: calc(2 * var(--spacing)) !important;
+	height: var(--heading-small);
+	width: var(--heading-small);
+	background-position: center !important;
+}
+
+.portlet .reorder {
+	display: none;
+}
+
+.portlet .clearfix::after {
+	display: none;
+}
+}
+
+@-moz-document domain("nestor.rug.nl"), domain("signon.rug.nl") {
+/* Background color and 'reset' */
+.portal .container {
+	margin: 0;
+}
+
+input:focus,
+button:focus,
+select:focus,
+a:focus {
+	outline: none;
+}
+}
+
+@-moz-document domain("nestor.rug.nl"), domain("signon.rug.nl") {
+/* Hacks for modules on the home page */
+/* Courses */
+#mc_listWrapper {
+	margin: 0;
+}
+
+#mc_searchBar {
+	margin-bottom: 0;
+}
+
+.mc_search {
+	margin-bottom: calc(2 * var(--spacing));
+}
+
+.mc_search + br {
+	display: none;
+}
+
+.mc_header,
+.mc_yearNav {
+	font-size: var(--heading-small) !important;
+	font-family: "Open Sans";
+	font-weight: normal;
+	padding: 0 var(--spacing);
+	margin-bottom: var(--spacing);
+	margin-top: 0;
+	display: block;
+}
+
+.mc_header .icon-star-empty {
+	display: none;
+}
+
+#mc_listWrapper li:hover {
+	background-color: transparent;
+}
+
+#mc_listWrapper li a:hover {
+	text-decoration: underline;
+}
+
+#mc_listWrapper li:hover .mc_unavailable {
+	cursor: not-allowed;
+}
+
+.mc_enrollmentListClass li {
+	padding: var(--spacing);
+	line-height: 140%;
+}
+
+.mc_enrollmentListClass li a {
+	color: var(--co-text);
+}
+
+.mc_enrollmentListClass li .mc_star {
+	display: block;
+	height: 100%;
+	float: left;
+}
+
+.mc_enrollmentListClass li .mc_star.icon-star,
+.mc_enrollmentListClass li .mc_star.icon-star-empty {
+	margin-right: calc(2 * var(--spacing));
+}
+
+#mc_starredCourses {
+	margin: var(--spacing) 0;
+}
+
+#mc_starredCourses > div > br {
+	display: none;
+}
+
+.mc_enrollmentListClass li .icon-user {
+	display: none;
+}
+
+.mc_enrollmentsWrapper {
+	height: auto !important;
+}
+
+.mc_announcement li {
+	align-items: center;
+	justify-content: flex-start;
+	opacity: var(--op-blur);
+	margin-left: 0 !important;
+	padding-left: 2rem;
+}
+
+.mc_announcement li:hover {
+	opacity: var(--op-hover);
+}
+
+.mc_announcement li:last-of-type {
+	padding-bottom: 0;
+}
+
+.mc_announcement li i {
+	margin-right: var(--spacing);
+}
+
+.mc_yearNav {
+	display: flex;
+	align-items: center;
+	justify-content: space-between !important;
+	padding: 0;
+	margin-bottom: var(--spacing);
+}
+
+.mc_selectedYearCode {
+	background-color: transparent;
+	font-size: var(--heading-small);
+}
+
+.mc_yearNav .mc_previousButton span,
+.mc_yearNav .mc_nextButton span {
+	display: none;
+}
+
+.mc_yearNav .mc_previousButton,
+.mc_yearNav .mc_nextButton {
+	font-size: 0;
+}
+
+.mc_yearNav .mc_previousButton::before {
+	transform: scaleX(-1);
+	/* mirror */
+}
+
+.mc_yearNav .mc_previousButton::before,
+.mc_yearNav .mc_nextButton::before {
+	content: "➜";
+	font-size: var(--heading-small);
+	color: var(--co-text);
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
+	padding-right: var(--spacing);
+	padding-bottom: calc(.2 * var(--spacing));
+	width: calc(4 * var(--heading-small));
+	height: calc(1.2 * var(--heading-small));
+	border-radius: var(--br);
+	float: left;
+	transition: background .1s;
+}
+
+.mc_yearNav .mc_previousButton:hover::before,
+.mc_yearNav .mc_nextButton:hover::before {
+	background-color: var(--bg-hover);
+}
+
+.mc_yearNav .mc_previousButton:active::before,
+.mc_yearNav .mc_nextButton:active::before {
+	background-color: var(--bg-focus);
+}
+
+/* RUG tools */
+.RUGtools-tool {
+	border: none;
+	color: var(--co-text);
+}
+
+.RUGtools-tool td {
+	padding: 0 0 var(--spacing) 0 !important;
+	transition: background .1s;
+}
+
+.RUGtools-tool:hover td strong {
+	text-decoration: underline !important;
+}
+
+.RUGtools-tool td.RUGtools-item-text {
+	padding-left: calc(2 * var(--spacing)) !important;
+	font-size: 0;
+	vertical-align: middle;
+}
+
+.RUGtools-tool td.RUGtools-item-text br {
+	display: none;
+	float: left;
+}
+
+.RUGtools-tool td.RUGtools-item-text strong {
+	font-weight: normal;
+	font-size: var(--text-size);
+	color: var(--co-text);
+	float: left;
+}
+
+/* List of Results */
+#pg_PrintAction {
+	display: none;
+}
+
+#pg_Search {
+	box-sizing: border-box;
+	width: 100%;
+	margin-bottom: calc(2 * var(--spacing));
+}
+
+#pg_grades > label {
+	display: inline-flex;
+	align-items: center;
+	font-size: var(--text-size);
+	margin-right: calc(2 * var(--spacing));
+}
+
+#pg_grades input[type=checkbox] {
+	-moz-appearance: none;
+	width: var(--text-size);
+	height: var(--text-size);
+	border: 1px solid var(--co-text);
+	border-radius: var(--br);
+	margin: 0;
+	margin-right: var(--spacing);
+}
+
+#pg_grades input[type=checkbox]:checked {
+	background-color: var(--co-text);
+}
+
+#pg_HeaderRow {
+	border-bottom: 1px solid var(--bg-hover);
+}
+
+#pg_gradesList .pg_code-cell,
+#pg_HeaderRow .pg_code-cell {
+	display: none;
+}
+
+#pg_gradesList .pg_title-cell,
+#pg_HeaderRow .pg_title-cell {
+	width: 62%;
+}
+
+#pg_gradesList .pg_date-cell,
+#pg_HeaderRow .pg_date-cell {
+	width: 22%;
+}
+
+#pg_gradesList .pg_grade-cell,
+#pg_HeaderRow .pg_grade-cell {
+	width: 8%;
+	text-align: left;
+}
+
+#pg_gradesList .pg_ects-cell,
+#pg_HeaderRow .pg_ects-cell {
+	width: 8%;
+	text-align: left;
+}
+
+/* Need to know */
+#needToKnow {
+	filter: invert() contrast(74%) hue-rotate(193deg) saturate(0%);
+}
+
+/* Timetable */
+#Timetable_Tools .tt-day {
+	border-collapse: collapse;
+	display: flex;
+	margin: 0;
+	padding: var(--spacing) 0;
+}
+
+#Timetable_Tools .tt-activities {
+	overflow-x: hidden;
+}
+
+#Timetable_Tools .tt-activities .tt-day:not(:last-of-type) {
+	border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+#Timetable_Tools .tt-dayschedule {
+	border-bottom: none;
+	padding: 0;
+	max-width: calc(100% - 2em - 2 * var(--spacing));
+	display: block;
+}
+
+#Timetable_Tools .tt-dayheader {
+	min-width: 2em;
+	padding: 0;
+	margin: 0;
+	margin-right: var(--spacing);
+	border-right: 1px solid rgba(255, 255, 255, 0.1);
+	padding-right: var(--spacing);
+}
+
+#Timetable_Tools .tt-dayheadertext {
+	display: flex;
+	flex-direction: column;
+	border: none;
+	padding: 0;
+}
+
+#Timetable_Tools .tt-dayheadertext div {
+	text-align: right;
+	font-size: var(--text-size);
+	padding: 0;
+}
+
+#Timetable_Tools .tt-dayheaderday {
+	order: 0;
+	font-size: var(--text-tiny) !important;
+	line-height: var(--text-tiny) !important;
+	margin-bottom: var(--spacing);
+	text-transform: uppercase;
+	font-weight: bold;
+}
+
+#Timetable_Tools .tt-dayheadernumber {
+	order: 1;
+}
+
+#Timetable_Tools .tt-dayheadertoday {
+	display: none;
+}
+
+#Timetable_Tools .tt-activityitem {
+	display: flex;
+	justify-content: flex-start;
+}
+
+#Timetable_Tools .tt-activityitem:not(:last-of-type) {
+	margin-bottom: var(--spacing);
+}
+
+#Timetable_Tools .tt-time {
+	font-size: var(--text-tiny);
+	line-height: .8rem;
+	padding: var(--spacing);
+	min-width: 3em;
+	max-width: 3em;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	margin-right: var(--spacing);
+	background-color: var(--bg-hover);
+	color: var(--co-text);
+}
+
+#Timetable_Tools .tt-today .tt-time {
+	background-color: var(--bg-active);
+}
+
+#Timetable_Tools .tt-activity {
+	padding: 0;
+	margin: 0;
+	width: 80%;
+}
+
+#Timetable_Tools .tt-activitymini {
+	font-weight: normal;
+	font-size: var(--text-small);
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	padding: 0;
+	margin: 0;
+}
+
+#Timetable_Tools .tt-instructors {
+	font-size: var(--text-tiny);
+	margin-left: -.15rem; /* compensate fors space */
+}
+
+#Timetable_Tools .tt-instructors i {
+	display: none;
+}
+
+/* Course evaluations */
+
+/* Hide description ("these are evaluations" really? no way) and counter (there are rarely more than 2) */
+#Course_evaluations_Tools .divOptionsTable,
+#Course_evaluations_Tools .contentDiv > p {
+	display: none;
+}
+
+#Course_evaluations_Tools .divContentTable {
+	margin: 0;
+}
+
+#Course_evaluations_Tools .divContentTable .contentTable {
+	background-color: transparent;
+	color: var(--co-text);
+}
+
+#Course_evaluations_Tools .divContentTable .contentTable th {
+	color: var(--co-text);
+	border-bottom: 1px solid rgba(255,255,255,0.2) !important;
+}
+
+#Course_evaluations_Tools .divContentTable .contentTable tr.nostyle {
+	display: none;
+}
+
+#Course_evaluations_Tools .divContentTable .contentTable td,
+#Course_evaluations_Tools .divContentTable .contentTable th {
+    padding: var(--spacing);
+	border: none;
+}
+
+#Course_evaluations_Tools .notifHeaderDiv a {
+	font-weight: normal;
+	color: var(--co-text);
+	opacity: var(--op-blur);
+	font-size: var(--text-small);
+}
+
+#Course_evaluations_Tools .notifHeaderDiv a:hover {
+	opacity: var(--op-hover);
+	text-decoration: none;
+}
+}
+
+@-moz-document domain("nestor.rug.nl"), domain("signon.rug.nl") {
+
+/* # Course page */
+/* ## Breadcrumbs */
+#breadcrumbs.breadcrumbs {
+	padding: var(--spacing);
+}
+
+#breadcrumbs.breadcrumbs li {
+	margin: 0;
+	padding: 0;
+}
+
+#breadcrumbs.breadcrumbs li > a,
+#breadcrumbs.breadcrumbs li > span {
+	margin: 0;
+	padding: 0;
+	color: var(--co-text);
+	opacity: var(--op-blur);
+	font-weight: normal;
+	vertical-align: top;
+}
+
+#breadcrumbs.breadcrumbs li:hover > a {
+	opacity: var(--op-hover);
+	text-decoration: none;
+}
+
+#breadcrumbs.breadcrumbs li:not(:first-of-type) > a::before,
+#breadcrumbs.breadcrumbs li:not(:first-of-type) > span::before {
+	content: "/";
+	display: inline;
+	padding: 0 var(--spacing);
+}
+
+#breadcrumbs.breadcrumbs .courseArrow {
+	display: none;
+}
+
+#breadcrumbs.breadcrumbs .courseId {
+	font-family: "Courier";
+	font-size: var(--text-small);
+	line-height: var(--text-size);
+	height: var(--text-size);
+	background-color: var(--bg-active);
+	padding: .15rem var(--spacing) 0 var(--spacing);
+	border-radius: var(--br);
+	display: inline-block;
+}
+
+/* ## Page content */
+.contentPane {
+	background-color: transparent;
+	color: var(--co-text);
+}
+
+.contentPane .shadow {
+	border-top: none;
+}
+
+.contentPane h1 span,
+.contentPane h2 span,
+.contentPane h3 span,
+.contentPane h4 span {
+	color: var(--co-text) !important;
+}
+
+.contentPane #copyright {
+	display: none;
+}
+
+#containerdiv {
+	background-color: transparent !important;
+	border: none;
+	color: var(--co-text);
+	padding: 0;
+	margin: calc(2 * var(--spacing));
+}
+
+#containerdiv .contentList {
+	margin: 0;
+	padding: 0;
+}
+
+#containerdiv .liItem {
+	background-color: var(--bg-secondary) !important;
+	border-radius: var(--br);
+	border: 1px solid rgba(255, 255, 255, 0.1);
+	padding: 0;
+	overflow: hidden;
+}
+
+#containerdiv .liItem h3 {
+	font-size: var(--heading-small);
+	margin-bottom: var(--spacing);
+}
+
+#containerdiv .liItem:not(:last-of-type) {
+	margin-bottom: var(--spacing);
+}
+
+#containerdiv .liItem:hover {
+	background-color: var(--bg-secondary) !important;
+}
+
+#containerdiv .liItem .item_icon {
+	display: none;
+}
+
+/* this contains the post header for some reason */
+#containerdiv .liItem .item {
+	background-color: var(--bg-secondary);
+	transition: background .1s;
+	border-bottom: 1px solid var(--bg-hover) !important;
+	padding: calc(2 * var(--spacing)) calc(3 * var(--spacing));
+}
+
+#containerdiv .liItem .item h3 {
+	margin: 0;
+	font-weight: normal;
+}
+
+#containerdiv .liItem .details {
+	padding: calc(2 * var(--spacing)) calc(3 * var(--spacing));
+}
+
+#containerdiv .liItem .details:empty {
+	display: none;
+}
+
+#containerdiv .liItem table {
+	border-collapse: collapse;
+	border-width: 2px 0 2px 0;
+	border-color: white;
+	background-color: transparent !important;
+}
+
+#containerdiv .liItem table td {
+	padding: var(--spacing);
+	border-width: 0 0 1px 0;
+}
+
+#containerdiv .liItem table td,
+#containerdiv .liItem table td * {
+	color: var(--co-text) !important;
+	background-color: transparent !important;
+	text-align: left !important;
+}
+
+#containerdiv .liItem table td p:last-of-type {
+	margin-bottom: 0 !important;
+}
+
+#containerdiv .liItem table tr:first-child td,
+#containerdiv .liItem table th {
+	font-weight: bold;
+}
+
+/* Grades page */
+
+.filterBarHorizontal {
+	background-color: var(--bg-secondary);
+	border: 1px solid rgba(255,255,255,0.1);
+	border-radius: var(--br);
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: var(--spacing);
+	height: auto;
+	position: static;
+	width: unset;
+	margin-bottom: var(--spacing);
+}
+
+.filterBarHorizontal .sorter {
+	margin: 0;
+	position: static;
+	height: auto;
+	order: 1;
+}
+
+.filterBarHorizontal #filterby {
+	padding: 0;
+	width: auto;
+	order: 0;
+}
+
+.filterBarHorizontal ul li a {
+	color: var(--co-text);
+	opacity: var(--op-blur);
+	font-size: var(--text-size);
+}
+
+.filterBarHorizontal ul li a:hover {
+	cursor: pointer;
+	box-shadow: none;
+	opacity: var(--op-hover);
+}
+
+.filterBarHorizontal ul li a.active {
+	box-shadow: none;
+	border: none;
+	color: var(--co-text);
+	border-radius: var(--br);
+	opacity: var(--op-active);
+}
+
+#grades_wrapper {
+	margin-top: 0 !important;
+	float: none !important;
+}
+
+#grades_wrapper .row {
+	color: var(--co-text);
+	border: none;
+	border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+#grades_wrapper .row:hover {
+	background-color: rgba(255,255,255,0.1);
+}
+
+#grades_wrapper .calculatedRow {
+	box-shadow: none;
+	border-width: 0 0 1px 0;
+}
+
+.gradeTableNew {
+	background-color: var(--bg-secondary);
+	border: 1px solid rgba(255,255,255,0.1);
+	border-radius: var(--br);
+}
+
+.gradeTableNew .genericButton {
+	box-shadow: none;
+}
+
+.gradeTableNew .grades_header {
+	position: static;
+	height: auto;
+	display: flex;
+	background-color: transparent;
+	color: white;
+	font-size: var(--text-size);
+	padding: var(--spacing);
+	border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.gradeTableNew .grades_header .cell {
+	font-size: var(--text-size) !important;
+	text-transform: none;
+}
+}
+
+@-moz-document domain("nestor.rug.nl"), domain("signon.rug.nl") {
+/* Login page */
+
+/* Just hide most things*/
+#main > .logonColumns > .greyBox,
+#main > .logonColumns > .clear,
+#main > .logonColumns > .nestorLogonContent,
+#header > .nav-holder,
+#header .search-bar,
+#footer
+{
+	display: none;
+}
+
+/* Remove background images */
+body,
+#header,
+#main,
+.w1, .w2, .w3 {
+	background-image: none;
+	background-color: transparent;
+}
+
+/* Fix main */
+#main {
+	display: flex;
+	justify-content: center;
+	padding: 0;
+}
+
+#main .logonColumns {
+	padding: 0;
+	width: unset;
+	height: unset;
+	display: flex;
+	flex-direction: column;
+}
+
+#main h1 {
+	color: white;
+	text-shadow: none;
+}
+
+#main .logonForm {
+	border: 1px solid rgba(255,255,255,0.1);
+	background-color: var(--bg-secondary);
+	box-shadow: none;
+	padding: var(--spacing) calc(2 * var(--spacing));
+	margin: 0;
+	height: unset;
+	width: unset;
+}
+
+/* Login form is a table. WHY */
+#IDPLogin table {
+	width: 100%;
+}
+
+#IDPLogin tr {
+	border: none;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+}
+
+#IDPLogin tr:not(:last-of-type) {
+	margin-bottom: var(--spacing);
+}
+
+#IDPLogin td {
+	padding: 0;
+	text-align: left;
+	display: block;
+}
+
+#IDPLogin td.label label {
+	color: var(--co-text);
+	font-weight: normal;
+	margin-left: calc(var(--spacing) / 2);
+	margin-bottom: calc(var(--spacing) / 2);
+	display: block;
+}
+
+#IDPLogin input[type=text],
+#IDPLogin input[type=password] {
+	background-color: var(--bg-secondary) !important;
+	color: var(--co-text);
+	padding: var(--spacing) calc(2 * var(--spacing)) !important;
+	height: auto !important;
+	border: 1px solid var(--bg-hover) !important;
+	border-radius: var(--br);
+	font-size: 1rem !important;
+	line-height: normal;
+	margin: 0;
+	width: 100%;
+	box-sizing: border-box;
+}
+
+#IDPLogin input[type=text]:focus,
+#IDPLogin input[type=password]:focus{
+	box-shadow: none !important;
+	background-color: var(--bg-)
+}
+
+#IDPLogin .login-error {
+	margin: 0;
+}
+
+#IDPLogin .button-holder {
+	margin: 0;
+	display: flex;
+	justify-content: flex-end;
+}
+
+#IDPLogin .button-holder .button-box {
+	background: none;
+	width: unset;
+	height: unset;
+}
+
+#IDPLogin .button-holder .button-box .button {
+	background: none;
+	float: none;
+	padding: var(--spacing) calc(2 * var(--spacing));
+	margin: unset;
+	width: unset;
+	height: unset;
+	line-height: normal;
+	border: 1px solid rgba(255,255,255,.1);
+	border-radius: var(--br);
+	background-color: var(--bg-hover);
+	font-weight: normal;
+	text-shadow: none;
+	color: var(--co-text);
 }
 }
