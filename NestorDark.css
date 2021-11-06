@@ -1,7 +1,8 @@
+@-moz-document domain("nestor.rug.nl"), domain("signon.rug.nl") {
 /* 
 University of Groningen Student Portal Dark Theme
 
-Copyright 2019–2020 Ramon Meffert
+Copyright 2019–2021 Ramon Meffert
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
@@ -9,17 +10,16 @@ The above copyright notice and this permission notice shall be included in all c
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
-@-moz-document domain("nestor.rug.nl"), domain("signon.rug.nl") {
 /* css variables */
 :root {
 	--co-primary: #bc1919;
 	--co-secondary: #00bfff;
-	--co-text: white;
+	--co-text: #ddd;
 	--bg-primary: black;
 	--bg-secondary: #212121;
 	--bg-hover: #323232;
 	--bg-active: #434343;
-	--fg-main: white;
+	--bg-input: #1a1a1a;
 	--op-focus: 1;
 	--op-hover: 0.8;
 	--op-blur: 0.6;
@@ -457,7 +457,7 @@ html {
 }
 
 .portal .container .portlet input[type=text] {
-	background-color: var(--bg-secondary) !important;
+	background-color: var(--bg-input) !important;
 	color: var(--co-text);
 	padding: var(--spacing) calc(2 * var(--spacing)) !important;
 	height: auto !important;
@@ -468,7 +468,7 @@ html {
 
 .portal .container .portlet input[type=text]:focus {
 	box-shadow: none !important;
-	background-color: var(--bg-)
+	background-color: var(--bg-);
 }
 
 .collapsible {
@@ -719,6 +719,11 @@ a:focus {
 	float: left;
 }
 
+/* Special case for IRIS icon */
+.RUGtools-tool img[src$="iris.svg"] {
+	filter: invert(100%) brightness(4);
+}
+
 /* List of Results */
 #pg_PrintAction {
 	display: none;
@@ -784,7 +789,7 @@ a:focus {
 
 /* Need to know */
 #needToKnow {
-	filter: invert() contrast(74%) hue-rotate(193deg) saturate(0%);
+	filter: invert(100%) contrast(74%) hue-rotate(193deg) saturate(0%);
 }
 
 /* Timetable */
@@ -803,14 +808,14 @@ a:focus {
 	border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-#Timetable_Tools .tt-dayschedule {
+#Timetable_Tools .tt-day-schedule {
 	border-bottom: none;
 	padding: 0;
 	max-width: calc(100% - 2em - 2 * var(--spacing));
 	display: block;
 }
 
-#Timetable_Tools .tt-dayheader {
+#Timetable_Tools .tt-day-header {
 	min-width: 2em;
 	padding: 0;
 	margin: 0;
@@ -819,20 +824,20 @@ a:focus {
 	padding-right: var(--spacing);
 }
 
-#Timetable_Tools .tt-dayheadertext {
+#Timetable_Tools .tt-day-header-text {
 	display: flex;
 	flex-direction: column;
 	border: none;
 	padding: 0;
 }
 
-#Timetable_Tools .tt-dayheadertext div {
+#Timetable_Tools .tt-day-header-text div {
 	text-align: right;
 	font-size: var(--text-size);
 	padding: 0;
 }
 
-#Timetable_Tools .tt-dayheaderday {
+#Timetable_Tools .tt-day-header-day {
 	order: 0;
 	font-size: var(--text-tiny) !important;
 	line-height: var(--text-tiny) !important;
@@ -841,20 +846,21 @@ a:focus {
 	font-weight: bold;
 }
 
-#Timetable_Tools .tt-dayheadernumber {
+#Timetable_Tools .tt-day-header-number {
 	order: 1;
 }
 
-#Timetable_Tools .tt-dayheadertoday {
+#Timetable_Tools .tt-day-header-today,
+#Timetable_Tools .tt-group {
 	display: none;
 }
 
-#Timetable_Tools .tt-activityitem {
+#Timetable_Tools .tt-activity-item {
 	display: flex;
 	justify-content: flex-start;
 }
 
-#Timetable_Tools .tt-activityitem:not(:last-of-type) {
+#Timetable_Tools .tt-activity-item:not(:last-of-type) {
 	margin-bottom: var(--spacing);
 }
 
@@ -883,7 +889,7 @@ a:focus {
 	width: 80%;
 }
 
-#Timetable_Tools .tt-activitymini {
+#Timetable_Tools .tt-activity-mini {
 	font-weight: normal;
 	font-size: var(--text-small);
 	white-space: nowrap;
@@ -895,15 +901,53 @@ a:focus {
 
 #Timetable_Tools .tt-instructors {
 	font-size: var(--text-tiny);
-	margin-left: -.15rem; /* compensate fors space */
+	margin-left: -.15rem;
+	/* compensate fors space */
 }
 
 #Timetable_Tools .tt-instructors i {
 	display: none;
 }
 
-/* Course evaluations */
+#Timetable_Tools .tt-buttons-div {
+	margin-left: 0;
+	display: flex;
+}
 
+#Timetable_Tools .tt-buttons-div > a button {
+	border: 1px solid rgba(255, 255, 255, .1);
+	background: var(--bg-hover);
+	box-sizing: border-box;
+	height: 3rem;
+	color: var(--co-text);
+	width: unset;
+	transition: .1s background-color;
+}
+
+#Timetable_Tools .tt-buttons-div > a:hover button {
+	background-color: var(--bg-active);
+}
+
+#Timetable_Tools .tt-buttons-div a:first-child button {
+	border-radius: var(--br) 0 0 var(--br);
+	width: 3rem;
+	padding: 0;
+	border-right: none;
+}
+
+#Timetable_Tools .tt-buttons-div a:last-child {
+	flex-grow: 1;
+}
+
+#Timetable_Tools .tt-buttons-div a:last-child button {
+	border-radius: 0 var(--br) var(--br) 0;
+	width: 100%;
+	text-align: left;
+	padding: 0 1rem;
+	font-weight: normal;
+}
+
+/* Course evaluations */
 /* Hide description ("these are evaluations" really? no way) and counter (there are rarely more than 2) */
 #Course_evaluations_Tools .divOptionsTable,
 #Course_evaluations_Tools .contentDiv > p {
@@ -921,7 +965,7 @@ a:focus {
 
 #Course_evaluations_Tools .divContentTable .contentTable th {
 	color: var(--co-text);
-	border-bottom: 1px solid rgba(255,255,255,0.2) !important;
+	border-bottom: 1px solid rgba(255, 255, 255, 0.2) !important;
 }
 
 #Course_evaluations_Tools .divContentTable .contentTable tr.nostyle {
@@ -930,7 +974,7 @@ a:focus {
 
 #Course_evaluations_Tools .divContentTable .contentTable td,
 #Course_evaluations_Tools .divContentTable .contentTable th {
-    padding: var(--spacing);
+	padding: var(--spacing);
 	border: none;
 }
 
@@ -948,7 +992,6 @@ a:focus {
 }
 
 @-moz-document domain("nestor.rug.nl"), domain("signon.rug.nl") {
-
 /* # Course page */
 /* ## Breadcrumbs */
 #breadcrumbs.breadcrumbs {
@@ -1106,10 +1149,9 @@ a:focus {
 }
 
 /* Grades page */
-
 .filterBarHorizontal {
 	background-color: var(--bg-secondary);
-	border: 1px solid rgba(255,255,255,0.1);
+	border: 1px solid rgba(255, 255, 255, 0.1);
 	border-radius: var(--br);
 	display: flex;
 	justify-content: space-between;
@@ -1162,11 +1204,11 @@ a:focus {
 #grades_wrapper .row {
 	color: var(--co-text);
 	border: none;
-	border-bottom: 1px solid rgba(255,255,255,0.1);
+	border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 #grades_wrapper .row:hover {
-	background-color: rgba(255,255,255,0.1);
+	background-color: rgba(255, 255, 255, 0.1);
 }
 
 #grades_wrapper .calculatedRow {
@@ -1176,7 +1218,7 @@ a:focus {
 
 .gradeTableNew {
 	background-color: var(--bg-secondary);
-	border: 1px solid rgba(255,255,255,0.1);
+	border: 1px solid rgba(255, 255, 255, 0.1);
 	border-radius: var(--br);
 }
 
@@ -1192,7 +1234,7 @@ a:focus {
 	color: white;
 	font-size: var(--text-size);
 	padding: var(--spacing);
-	border-bottom: 1px solid rgba(255,255,255,0.1);
+	border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .gradeTableNew .grades_header .cell {
@@ -1201,17 +1243,15 @@ a:focus {
 }
 }
 
-@-moz-document domain("nestor.rug.nl"), domain("signon.rug.nl") {
-/* Login page */
-
+@-moz-document domain("nestor.rug.nl"), domain("signon.rug.nl"), domain("xfactor.rug.nl") {
+/* 2FA page */
 /* Just hide most things*/
 #main > .logonColumns > .greyBox,
 #main > .logonColumns > .clear,
 #main > .logonColumns > .nestorLogonContent,
 #header > .nav-holder,
 #header .search-bar,
-#footer
-{
+#footer {
 	display: none;
 }
 
@@ -1219,7 +1259,9 @@ a:focus {
 body,
 #header,
 #main,
-.w1, .w2, .w3 {
+.w1,
+.w2,
+.w3 {
 	background-image: none;
 	background-color: transparent;
 }
@@ -1245,7 +1287,7 @@ body,
 }
 
 #main .logonForm {
-	border: 1px solid rgba(255,255,255,0.1);
+	border: 1px solid rgba(255, 255, 255, 0.1);
 	background-color: var(--bg-secondary);
 	box-shadow: none;
 	padding: var(--spacing) calc(2 * var(--spacing));
@@ -1300,7 +1342,7 @@ body,
 }
 
 #IDPLogin input[type=text]:focus,
-#IDPLogin input[type=password]:focus{
+#IDPLogin input[type=password]:focus {
 	box-shadow: none !important;
 	background-color: var(--bg-)
 }
@@ -1321,7 +1363,7 @@ body,
 	height: unset;
 }
 
-#IDPLogin .button-holder .button-box .button {
+#IDPLogin .button-holder .button-box button {
 	background: none;
 	float: none;
 	padding: var(--spacing) calc(2 * var(--spacing));
@@ -1329,10 +1371,126 @@ body,
 	width: unset;
 	height: unset;
 	line-height: normal;
-	border: 1px solid rgba(255,255,255,.1);
+	border: 1px solid rgba(255, 255, 255, .1);
 	border-radius: var(--br);
 	background-color: var(--bg-hover);
 	font-weight: normal;
+	text-shadow: none;
+	color: var(--co-text);
+}
+
+#IDPLogin .button-holder .button-box button:hover {
+	padding: var(--spacing) calc(2 * var(--spacing)) !important;
+}
+}
+
+@-moz-document domain("signon.rug.nl") {
+/* Login page */
+.rug-background-menu.rug-shadow-box-inset,
+span.rug-site-header__item,
+.rug-layout.rug-layout--stretch .rug-layout__item:not(:first-child),
+.rug-background-neutral-10.rug-mt-l + .rug-background-white,
+footer {
+	display: none;
+}
+
+.rug-site-header__bar,
+.rug-site-header {
+	background-color: var(--bg-secondary);
+	height: 4rem;
+	min-height: 4rem;
+	box-sizing: border-box;
+}
+
+.rug-site-header .rug-site-header__item:first-child {
+	margin: 0 auto;
+}
+
+.rug-site-header .rug-site-header__item:not(:first-child) {
+	display: none;
+}
+
+.rug-site-logo {
+	height: 3rem;
+	width: auto;
+	margin: 0;
+	padding: 0;
+}
+
+.rug-layout {
+	margin: 0;
+	/* they're doing some weird stuff w/ negative margins so we need to fix it */
+}
+
+.rug-layout.rug-layout--stretch .rug-layout__item {
+	padding: 0;
+	margin: 20vmax auto 0 auto;
+	width: unset;
+}
+
+div > .rug-background-neutral-10.rug-mt-l {
+	background: transparent !important;
+}
+
+.rug-form--login {
+	border: 1px solid rgba(255, 255, 255, 0.1);
+	background-color: var(--bg-secondary);
+	box-shadow: none;
+	padding: var(--spacing) calc(2 * var(--spacing));
+	margin: 0;
+	height: unset;
+	width: unset;
+	border-radius: var(--br);
+}
+
+.rug-form--login label {
+	color: var(--co-text);
+	font-family: "Open Sans";
+	font-weight: normal;
+	margin-left: calc(var(--spacing) / 2);
+	margin-bottom: calc(var(--spacing) / 2);
+	display: block;
+}
+
+.rug-form--login input[type=text],
+.rug-form--login input[type=password] {
+	background-color: var(--bg-secondary) !important;
+	color: var(--co-text);
+	padding: var(--spacing) calc(2 * var(--spacing)) !important;
+	height: auto !important;
+	border: 1px solid var(--bg-hover) !important;
+	border-radius: var(--br);
+	font-size: 1rem !important;
+	line-height: normal;
+	margin: 0;
+	width: 100%;
+	box-sizing: border-box;
+}
+
+.rug-form--login input[type=text],
+.rug-form--login input[type=password] {
+	margin-bottom: calc(2 * var(--spacing));
+}
+
+.rug-form--login input[type=text]:focus,
+.rug-form--login input[type=password]:focus {
+	box-shadow: none !important;
+	background-color: var(--bg-)
+}
+
+.rug-form--login .rug-button {
+	background: none;
+	float: right;
+	padding: var(--spacing) calc(2 * var(--spacing));
+	margin: unset;
+	width: unset;
+	height: unset;
+	line-height: normal;
+	border: 1px solid rgba(255, 255, 255, .1);
+	border-radius: var(--br);
+	background-color: var(--bg-hover);
+	font-family: "Open Sans";
+	font-weight: normal !important;
 	text-shadow: none;
 	color: var(--co-text);
 }
