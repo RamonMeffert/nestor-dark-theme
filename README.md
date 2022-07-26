@@ -1,4 +1,7 @@
 # NestorDark
+
+> **Note** This is a BlackBoard userstyle. The UG has switched to BrightSpace, so this repo has been archived.
+
 A dark theme for the UG student portal, for use with the Stylus extension
 
 ## Installation instructions
